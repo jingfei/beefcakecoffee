@@ -30,6 +30,7 @@
   li > a { padding-bottom: 12px; }
   ul.nav > li.active > a, 
   ul.nav > li.active > a:hover, 
+  ul.nav > li.open > a, 
   ul.nav > li > a:hover {
     background: transparent;
     border-bottom: 5px solid $brown;

@@ -1,20 +1,15 @@
 # Beefcake Coffee
 
 ## Develop
+expressjs frame
 
 ```
 $ sudo npm install
 ```
 
-build js, css
+build all
 
 ```
-$ gulp
-```
-
-build template
-
-```
-$ ./bin/build
+$ node app.js
 ```
 
