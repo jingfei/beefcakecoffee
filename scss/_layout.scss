@@ -1,0 +1,28 @@
+@import "./_color";
+@import "./_nav";
+
+@font-face {
+  font-family: 'NotoSansCJKtc-Regular';
+  src: url("/font/NotoSansCJKtc-Regular.woff") format('woff');
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: $black;
+  background: $light-gray;
+  font-family: 'NotoSansCJKtc-Regular', 'Noto Sans', "微軟雅黑","Microsoft YaHei", Helvetica, 'sans-serif';
+}
+
+body {
+  a {
+    color: $blue;
+    &:hover {
+      color: $blue;
+      opacity: 0.8;
+    }
+  }
+  h1, h2, h3, h4, h5, h6{
+    color: $gray;
+  }
+}

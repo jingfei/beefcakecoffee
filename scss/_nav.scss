@@ -1,0 +1,40 @@
+@import "./_color";
+
+.navbar-default { 
+  border: none; 
+}
+
+.navbar-default .navbar-header {
+  display: block;
+  float: none;
+  height: 100px; 
+  padding: 20px;
+  a.navbar-brand { 
+    color: $dark-black;
+    font-size: 28px; 
+  }
+}
+
+.navbar-default .navbar-collapse {
+  border-top: 1px solid $gray;
+  border-bottom: 1px solid $gray;
+  li > a { padding-bottom: 12px; }
+  ul.nav > li.active > a, 
+  ul.nav > li.active > a:hover, 
+  ul.nav > li > a:hover {
+    background: transparent;
+    border-bottom: 5px solid $dark-black;
+    animation-name: underline-animation;
+    animation-duration: 200ms;
+    animation-fill-mode: ease-in;
+  }
+}
+
+@keyframes underline-animation {
+  0% {
+    border-bottom: 0px;
+  }
+  100% {
+    border-bottom: 5px solid $dark-black;
+  }
+}
