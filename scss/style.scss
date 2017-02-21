@@ -1,0 +1,51 @@
+@import "./_layout";
+
+.navbar-default {
+  margin-top: -250px;
+  .navbar-header {
+    background-image: url(../images/home.jpg); 
+  }
+}
+
+#big-img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  #img-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-image: url(../images/home.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 20;
+  }
+  #img-front {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 30;
+    background-color: rgba(0,0,0,.7);
+  }
+  #img-text {
+    position: relative;
+    top: 200px;
+    z-index: 30;
+    text-align: center;
+    & > div {
+      cursor: pointer;
+      margin: 0 auto;
+      font-size: 60px; 
+      color: white;
+      h1 { font-size: 100px; color: $brown; }
+      a { font-size: 40px; }
+      a:hover { text-decoration: none; }
+      &:hover { opacity: .8; }
+    }
+  }
+}
+

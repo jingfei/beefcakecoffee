@@ -26,3 +26,7 @@ body {
     color: $gray;
   }
 }
+
+body > div.container-fluid {
+  min-height: 75%; 
+}

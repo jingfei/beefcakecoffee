@@ -1,14 +1,14 @@
 <html>
   <head>
     {{> head}}
-    <link rel="stylesheet" href="css/home.css" >
+    <link rel="stylesheet" href="./css/style.css" >
 	</head>
 	<body>
     <div id="big-img">
       <div id="img-back"></div>
       <div id="img-front"></div>
       <div id="img-text">
-        <div onClick="location.href='./home.html';">
+        <div onClick="scrollToMain();">
         Welcome to
         <h1>BEEFCAKE COFFEE</h1>
         <a href="./home.html">enter</a>
@@ -16,6 +16,8 @@
       </div>
     </div>
     {{> header}}
+    <div class="container-fluid"></div>
     {{> footer }}
+    <script src="./js/home.js"></script>
   </body>
 </html>
