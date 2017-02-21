@@ -1,23 +1,23 @@
 <html>
   <head>
     {{> head}}
-    <link rel="stylesheet" href="./css/style.css" >
+    <link rel="stylesheet" href="./css/home.css" >
 	</head>
 	<body>
-    <div id="big-img">
+    <div id="big-img" {{#if bigimg}} style="display: block" {{/if}}>
       <div id="img-back"></div>
       <div id="img-front"></div>
       <div id="img-text">
         <div onClick="scrollToMain();">
         Welcome to
         <h1>BEEFCAKE COFFEE</h1>
-        <a href="./home.html">enter</a>
+        <a href="#">enter</a>
         </div>
       </div>
     </div>
     {{> header}}
     <div class="container-fluid"></div>
     {{> footer }}
-    <script src="./js/home.js"></script>
+    {{#if bigimg}} <script src="./js/home.js"></script> {{/if}}
   </body>
 </html>

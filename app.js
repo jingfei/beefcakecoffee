@@ -27,9 +27,32 @@ app.use(uglifyMiddleware({
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res){
-  res.render('index');
+  res.render('index', { 
+    title: "猛男咖啡 Beefcake Coffee Roaster",
+    menu_home: true,
+    bigimg: true
+  });
+});
+
+app.get('/home', function(req, res){
+  res.render('index', { 
+    title: "猛男咖啡 Beefcake Coffee Roaster",
+    menu_home: true
+  });
+});
+
+app.get('/story', function(req, res) {
+  res.render('story', {
+    title: "我們的故事 - 猛男咖啡 Beefcake COffee Roaster",
+    menu_story: true
+  });
 });
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
+
+hbs.registerHelper("not", function(obj) {
+    return !obj;
+});
+
