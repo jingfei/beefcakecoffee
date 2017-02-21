@@ -9,10 +9,18 @@
   float: none;
   height: 100px; 
   padding: 20px;
+  height: 250px;
   a.navbar-brand { 
-    color: $dark-black;
+    color: $brown;
     font-size: 28px; 
   }
+  span.navbar-brand { color: $black; }
+  .navbar-brand {
+    margin-top: 180px;
+  }
+  background-image: url(../images/bg_home.jpg);
+  background-size: cover;
+  background-position: bottom;
 }
 
 .navbar-default .navbar-collapse {
@@ -23,7 +31,7 @@
   ul.nav > li.active > a:hover, 
   ul.nav > li > a:hover {
     background: transparent;
-    border-bottom: 5px solid $dark-black;
+    border-bottom: 5px solid $brown;
     animation-name: underline-animation;
     animation-duration: 200ms;
     animation-fill-mode: ease-in;
@@ -35,6 +43,6 @@
     border-bottom: 0px;
   }
   100% {
-    border-bottom: 5px solid $dark-black;
+    border-bottom: 5px solid $brown;
   }
 }

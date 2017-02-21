@@ -34,7 +34,7 @@
       margin: 0 auto;
       font-size: 60px; 
       color: white;
-      h1 { font-size: 100px; }
+      h1 { font-size: 100px; color: $brown; }
       a { font-size: 40px; }
       a:hover { text-decoration: none; }
       &:hover { opacity: .8; }
