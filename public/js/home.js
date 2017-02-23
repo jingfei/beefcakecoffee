@@ -19,7 +19,7 @@ $(window).bind("scroll", function() {
     document.getElementsByClassName("navbar-default")[0].style.opacity = 1-opacity;
   } else {
     document.getElementById("big-img").style.display = "none";
-    document.getElementsByClassName("navbar-default")[0].style.marginTop = "0";
+    document.getElementsByClassName("navbar-default")[0].style.marginTop = "";
     disableTop = true;
   }
 });

@@ -2,6 +2,9 @@
 
 .navbar-default { 
   border: none; 
+  &.navbar-fixed-top {
+    margin-top: -100px;
+  }
 }
 
 .navbar-default .navbar-header {
