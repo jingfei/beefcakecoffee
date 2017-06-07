@@ -3,6 +3,19 @@
 })();
 
 $(window).bind("scroll", function() {
+  var offset = $(document).scrollTop(),
+      nav = document.getElementsByClassName("navbar-default")[0],
+      navbarH = document.getElementById("navbar-collapse").offsetHeight,
+      container = document.getElementsByClassName("container-fluid")[1];
+  if(offset < container.offsetTop - navbarH) {
+    nav.classList.remove("navbar-fixed-top");
+  } else {
+    nav.classList.add("navbar-fixed-top");
+  }
+});
+
+/*
+$(window).bind("scroll", function() {
   var offset = $(document).scrollTop();
 
   if(offset <= 0) {
@@ -13,7 +26,7 @@ $(window).bind("scroll", function() {
     document.getElementsByClassName("navbar-default")[0].addClass("navbar-fixed-top");
   }
 });
-
+*/
 function scrollToMain() {
   var body = $("html, body");
   body.stop().animate({scrollTop: bgHeight-245}, '500', 'swing');

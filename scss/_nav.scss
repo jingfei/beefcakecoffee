@@ -27,9 +27,34 @@
   background-position: bottom;
 }
 
+.navbar-default.navbar-fixed-top {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  .container-fluid {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .navbar-collapse {
+    padding: 0 35px;
+    background: black;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    ul.nav { 
+      padding-left: 0;
+      margin-left: 20px;
+      & > li > a { color: white; }
+    }
+    img { display: block; }
+  }
+}
+
 .navbar-default .navbar-collapse {
   border-top: 1px solid $gray;
   border-bottom: 1px solid $gray;
+  ul.nav { margin-left: 100px; }
+  img { display: none; }
   li > a { padding-bottom: 12px; }
   ul.nav > li.active > a, 
   ul.nav > li.active > a:hover, 
