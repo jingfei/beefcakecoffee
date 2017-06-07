@@ -50,3 +50,15 @@
   }
 }
 
+.homeBack {
+  background-attachment: fixed;
+  height: 100vw;
+  background-size: cover;
+}
+
+.content {
+  height: 400px;
+  h1 { margin: 100px 150px;  color: $black; cursor: pointer; }
+  h1:hover { text-decoration: underline; }
+}
+
