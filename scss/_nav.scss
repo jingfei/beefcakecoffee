@@ -44,7 +44,9 @@
     ul.nav { 
       padding-left: 0;
       margin-left: 20px;
-      & > li > a { color: white; }
+      & > li > a { 
+        color: white; 
+      }
     }
     img { display: block; }
   }
@@ -55,7 +57,11 @@
   border-bottom: 1px solid $gray;
   ul.nav { margin-left: 100px; }
   img { display: none; }
-  li > a { padding-bottom: 12px; }
+  ul.nav > li > a { 
+    padding-bottom: 12px; 
+    width: 110px;
+    text-align: center;
+  }
   ul.nav > li.active > a, 
   ul.nav > li.active > a:hover, 
   ul.nav > li.open > a, 

@@ -1,5 +1,8 @@
 (function() {
-  
+  document.getElementsByClassName("navbar-nav")[0].addEventListener("mouseover", hoverMenuIn);
+  document.getElementsByClassName("navbar-nav")[0].addEventListener("mouseleave", hoverMenuOut);
+  document.getElementsByClassName("navbar-nav")[0].addEventListener("mouseout", hoverMenuOut);
+  document.getElementsByClassName("navbar-nav")[0].addEventListener("mouseenter", hoverMenuIn);
 })();
 
 $(window).bind("scroll", function() {
@@ -14,38 +17,29 @@ $(window).bind("scroll", function() {
   }
 });
 
-/*
-$(window).bind("scroll", function() {
-  var offset = $(document).scrollTop();
+const menu = [
+  ["首頁", "home"],
+  ["品牌故事", "story"],
+  ["最新消息", "news"],
+  ["猛男菜單", "menu"],
+  ["堅持品質", "quality"],
+  ["訓練課程", "training"],
+  ["場地租借", "venue"],
+  ["分店資訊", "about"],
+  ["訂購咖啡", "order"]
+];
 
-  if(offset <= 0) {
-    document.getElementsByClassName("navbar-default")[0].removeClass("navbar-fixed-top");
-  } else if (offset > 100) {
-    var bigimg = document.getElementById("big-img");
-    if(bigimg && bigimg.style.display!="none") return;
-    document.getElementsByClassName("navbar-default")[0].addClass("navbar-fixed-top");
-  }
-});
-*/
-function scrollToMain() {
-  var body = $("html, body");
-  body.stop().animate({scrollTop: bgHeight-245}, '500', 'swing');
+function hoverMenuIn(e) {
+  if(e.target.tagName.toUpperCase() !== "A") return;
+  var text = e.target.innerHTML;
+  for(item in menu) text = text.replace(menu[item][0], menu[item][1]);
+  e.target.innerHTML = text;
 }
 
-Element.prototype.removeClass = function(name) {
-  if(!this.hasClass(name)) return this;
-  this.className = this.className.replace(new RegExp('(?:^|\\s)' + name + '(?:\\s|$)'), ' ');
-  return this;
-};
-
-Element.prototype.addClass = function(name) {
-  if(this.hasClass(name)) return this;
-  this.className += (" "+name);
-  return this;
-};
-
-Element.prototype.hasClass = function(name) {
-  if(this.className.indexOf(name) !== -1) return true;
-  else return false;
-};
+function hoverMenuOut(e) {
+  if(e.target.tagName.toUpperCase() !== "A") return;
+  var text = e.target.innerHTML;
+  for(item in menu) text = text.replace(menu[item][1], menu[item][0]);
+  e.target.innerHTML = text;
+}
 
