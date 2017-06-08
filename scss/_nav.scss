@@ -10,12 +10,15 @@
 .navbar-default .navbar-header {
   display: block;
   float: none;
-  height: 100px; 
   padding: 20px;
   height: 250px;
   a.navbar-brand { 
-    color: $brown;
-    font-size: 32px; 
+    img { display: none; }
+    span {
+      color: white;
+      text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
+      font-size: 32px; 
+    }
   }
   span.navbar-brand { color: $black; }
   .navbar-brand {
@@ -25,6 +28,24 @@
   background-image: url(../images/bg_home.jpg);
   background-size: cover;
   background-position: bottom;
+  @media (max-width: 767px) {
+    height: auto;
+    padding: 0;
+    button { margin-right: 30px; }
+    span.navbar-brand { display: none; }
+    a.navbar-brand {
+      img { 
+        display: inline-block; 
+        height: 40px; 
+        margin-top: -10px; 
+      }
+      span { 
+        font-size: 20px; 
+        margin-left: 20px; 
+      }
+    }
+    .navbar-brand { margin: 0 15px; background: transparent; }
+  }
 }
 
 .navbar-default.navbar-fixed-top {
@@ -50,6 +71,27 @@
     }
     img { display: block; }
   }
+  @media (max-width: 767px) {
+    position: fixed;
+    .container-fluid {
+      margin-left: 0;
+      margin-right: 0;
+      padding-right: 0;
+      padding-left: 0;
+    }
+    .navbar-collapse {
+      padding: 0;
+      margin: 0;
+      position: relative;
+      img { display: none; }
+      background: white;
+      ul.nav {
+        margin-left: 0;
+        margin-right: 0;
+        & > li > a { color: $black; }
+      }
+    }
+  }
 }
 
 .navbar-default .navbar-collapse {
@@ -72,6 +114,25 @@
     animation-duration: 200ms;
     animation-fill-mode: ease-in;
   }
+  @media (max-width: 767px) {
+    ul.nav { 
+      margin-left: 0; 
+      margin-right: 0;
+    }
+    ul.nav > li > a {
+      padding-bottom: 10px;
+      width: auto;
+      text-align: left;
+    }
+    ul.nav > li.active > a, 
+    ul.nav > li.active > a:hover, 
+    ul.nav > li.open > a, 
+    ul.nav > li > a:hover {
+      background: $gray;
+      border-bottom: none;
+      animation-name: none;
+    }
+  }
 }
 
 @keyframes underline-animation {
@@ -82,3 +143,4 @@
     border-bottom: 5px solid $brown;
   }
 }
+
