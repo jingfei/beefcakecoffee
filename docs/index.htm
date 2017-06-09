@@ -37,14 +37,17 @@
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./">Beefcake Coffee</a>
-          <span class="navbar-brand"> more than a cup of coffee</span>
+          <a class="navbar-brand" href="./">
+            <img src="./images/logo.png" />
+            <span>Beefcake Coffee</span>
+          </a>
+          <span class="navbar-brand"> Enjoy everything about coffee</span>
         </div>
     
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -53,7 +56,7 @@
           <ul class="nav navbar-nav">
             <li  class="active" ><a href="./home.htm">首頁 <span class="sr-only">(current)</span></a></li>
             <li ><a href="./story.htm">品牌故事</a></li>
-            <li><a href="./news">最新消息</a></li>
+            <li ><a href="./news.htm">最新消息</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">猛男菜單 <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -86,6 +89,35 @@
       <div class="homeBack" style="background-image:url(images/story_5.jpg)"><div></div></div>
       <div style="height:500px"></div>
     </div>
+    <div id="footer" class="row">
+      <div class="col-md-8 row">
+        <div class="col-xs-6">
+          <a href="#" class="mobileonly btn btn-default btn-circle"><i class="fa fa-facebook"></i></a>
+          <h4>猛男咖啡 <span>大成精品店</span></h4>
+          <p><span class="nomobile">台南市</span>南區大成路一段32號<br/>
+             06 261 0686<br/>
+             10:00 - 18:00</p>
+          <p class="nomobile"><a href="#" class="btn btn-default btn-circle"><i class="fa fa-facebook"></i> <span>@BeefcakeCoffeeRoasters</span></a></p>
+          <p class="nomobile"><a href="#" class="btn btn-default btn-circle"><i class="fa fa-envelope-o"></i> <span>beefcakecoffee@gmail.com</span></a></p>
+        </div>
+        <div class="col-xs-6">
+          <a href="#" class="mobileonly btn btn-default btn-circle"><i class="fa fa-facebook"></i></a>
+          <h4>猛男咖啡 <span>2.0 安平店</span></h4>
+          <p><span class="nomobile">台南市</span>安平區安平路42號<br/>
+             06 280 1966<br/>
+             09:00 - 23:00</p>
+          <p class="nomobile"><a href="#" class="btn btn-default btn-circle"><i class="fa fa-facebook"></i> <span>@BeefcakeCoffeeRoasters2.0</span></a></p>
+          <p class="nomobile"><a href="#" class="btn btn-default btn-circle"><i class="fa fa-envelope-o"></i> <span>beefcakecoffee@gmail.com</span></a></p>
+        </div>
+      </div>
+      <p class="mobileonly"><a href="#" class="btn btn-default btn-circle"><i class="fa fa-envelope-o"></i> <span>beefcakecoffee@gmail.com</span></a></p>
+      <div class="col-md-4">
+        <h4>Beefcake Coffee Roasters</h4>
+        <img src="" alt="照片" style="height: 200px; width: 90%;" >
+        <div style="text-align:center;width:90%"><button class="btn btn-default">加入我們</button></div>
+      </div>
+    </div>
+    
     <script src="./js/frame/jquery-1.12.0.min.js"></script>
     <script src="./js/frame/bootstrap.min.js"></script>
     <script>$('.dropdown-toggle').dropdown()</script>

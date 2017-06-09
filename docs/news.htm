@@ -5,10 +5,10 @@
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/png" href="./favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="猛男咖啡 Beefcake Coffee Roaster">
-    <meta property="og:site_name" content="猛男咖啡 Beefcake Coffee Roaster">
+    <meta property="og:title" content="最新消息 - 猛男咖啡 Beefcake Coffee Roaster">
+    <meta property="og:site_name" content="最新消息 - 猛男咖啡 Beefcake Coffee Roaster">
     <meta property="og:description" content="">
-    <title>猛男咖啡 Beefcake Coffee Roaster</title>
+    <title>最新消息 - 猛男咖啡 Beefcake Coffee Roaster</title>
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
     <link rel="stylesheet" href="./css/frame/bootstrap.min.css" />
     <link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -20,19 +20,9 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    <link rel="stylesheet" href="./css/home.css" >
+    <link rel="stylesheet" href="./css/news.css" >
   </head>
   <body>
-    <div id="big-img" >
-      <div id="img-back"></div>
-      <div id="img-front"></div>
-      <div id="img-text">
-        <div onClick="scrollToMain();">
-          <h1>BEEFCAKE COFFEE ROASTERS</h1>
-          Enjoy everything about Coffee
-        </div>
-      </div>
-    </div>
     <nav class="navbar navbar-default"  >
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -54,9 +44,9 @@
         <div class="collapse navbar-collapse" id="navbar-collapse">
           <img src="./images/logo.png" style="height:50px;float:left;" />
           <ul class="nav navbar-nav">
-            <li  class="active" ><a href="./home.htm">首頁 <span class="sr-only">(current)</span></a></li>
+            <li ><a href="./home.htm">首頁</a></li>
             <li ><a href="./story.htm">品牌故事</a></li>
-            <li ><a href="./news.htm">最新消息</a></li>
+            <li  class="active" ><a href="#">最新消息 <span class="sr-only">(current)</span></a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">猛男菜單 <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -81,45 +71,81 @@
       </div><!-- /.container-fluid -->
     </nav>
     <div class="container-fluid">
-      <div class="content"><h1>大成精品店</h1></div>
-      <div class="homeBack" style="background-image:url(images/story_2.jpg)"><div></div></div>
-      <div class="content"><h1>安平店</h1></div>
-      <div class="homeBack" style="background-image:url(images/story_3.jpg)"><div></div></div>
-      <div class="content"><h1>聯絡我們</h1></div>
-      <div class="homeBack" style="background-image:url(images/story_5.jpg)"><div></div></div>
-      <div style="height:500px"></div>
+      <div class="rows" id="main">
+        <div class="col-md-4 col-md-push-8">
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" placeholder="搜尋...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </span>
+          </div><!-- /input-group -->
+          <div id="map">
+            <h5>HOURS & INFO</h5>
+            <div class="map-content">
+              <p style="font-weight:bold">猛男咖啡 2.0 安平店</p>
+              <iframe src="https://www.google.com/maps?q=猛男咖啡2.0&output=embed" width="100%" height="250" frameborder="0" style="border:0"></iframe>
+              <p>台南市安平區安平路42號</p>
+              <p>06 280 1966</p>
+              <p>09:00 - 23:00</p>
+            </div>
+            <div class="map-content">
+              <p style="font-weight:bold">猛男咖啡 大成精品店</p>
+              <iframe src="https://www.google.com/maps?q=猛男咖啡&output=embed" width="100%" height="250" frameborder="0" style="border:0"></iframe>
+              <p>台南市南區大成路一段32號</p>
+              <p>06 261 0686</p>
+              <p>10:00 - 18:00</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 col-md-pull-4">
+          <div class="block">
+            <div class="date">六月 8, 2017</div>
+            <h2 class="title">Title</h2>
+            <div class="content">This is content.<br/>content<br/>content</div>
+          </div>
+          <div class="block">
+            <div class="date">五月 28, 2017</div>
+            <h2 class="title">Title</h2>
+            <img src="./images/news_pic.jpg" class="slide-in align-left" />
+            <div class="content">This is content.<br/>content<br/>content</div>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="footer" class="row">
       <div class="col-md-8 row">
         <div class="col-xs-6">
-          <h4>猛男咖啡 大成精品店</h4>
-          <p>台南市南區大成路一段32號<br/>
+          <a href="#" class="mobileonly btn btn-default btn-circle"><i class="fa fa-facebook"></i></a>
+          <h4>猛男咖啡 <span>大成精品店</span></h4>
+          <p><span class="nomobile">台南市</span>南區大成路一段32號<br/>
              06 261 0686<br/>
              10:00 - 18:00</p>
-          <p><a href="#" class="btn btn-default btn-circle"><i class="fa fa-facebook"></i> <span>@BeefcakeCoffeeRoasters</span></a></p>
-          <p><a href="#" class="btn btn-default btn-circle"><i class="fa fa-envelope-o"></i> <span>beefcakecoffee@gmail.com</span></a></p>
+          <p class="nomobile"><a href="#" class="btn btn-default btn-circle"><i class="fa fa-facebook"></i> <span>@BeefcakeCoffeeRoasters</span></a></p>
+          <p class="nomobile"><a href="#" class="btn btn-default btn-circle"><i class="fa fa-envelope-o"></i> <span>beefcakecoffee@gmail.com</span></a></p>
         </div>
         <div class="col-xs-6">
-          <h4>猛男咖啡 2.0 安平店</h4>
-          <p>台南市安平區安平路42號<br/>
+          <a href="#" class="mobileonly btn btn-default btn-circle"><i class="fa fa-facebook"></i></a>
+          <h4>猛男咖啡 <span>2.0 安平店</span></h4>
+          <p><span class="nomobile">台南市</span>安平區安平路42號<br/>
              06 280 1966<br/>
              09:00 - 23:00</p>
-          <p><a href="#" class="btn btn-default btn-circle"><i class="fa fa-facebook"></i> <span>@BeefcakeCoffeeRoasters2.0</span></a></p>
-          <p><a href="#" class="btn btn-default btn-circle"><i class="fa fa-envelope-o"></i> <span>beefcakecoffee@gmail.com</span></a></p>
+          <p class="nomobile"><a href="#" class="btn btn-default btn-circle"><i class="fa fa-facebook"></i> <span>@BeefcakeCoffeeRoasters2.0</span></a></p>
+          <p class="nomobile"><a href="#" class="btn btn-default btn-circle"><i class="fa fa-envelope-o"></i> <span>beefcakecoffee@gmail.com</span></a></p>
         </div>
       </div>
+      <p class="mobileonly"><a href="#" class="btn btn-default btn-circle"><i class="fa fa-envelope-o"></i> <span>beefcakecoffee@gmail.com</span></a></p>
       <div class="col-md-4">
         <h4>Beefcake Coffee Roasters</h4>
         <img src="" alt="照片" style="height: 200px; width: 90%;" >
-        <button class="btn btn-default">加入我們</button>
+        <div style="text-align:center;width:90%"><button class="btn btn-default">加入我們</button></div>
       </div>
     </div>
     
     <script src="./js/frame/jquery-1.12.0.min.js"></script>
     <script src="./js/frame/bootstrap.min.js"></script>
     <script>$('.dropdown-toggle').dropdown()</script>
-    
     <script src="./js/common.js"></script>
+    <script src="./js/slideImage.js"></script>
   </body>
 </html>
 

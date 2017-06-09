@@ -26,7 +26,10 @@
       font-size: 32px; 
     }
   }
-  span.navbar-brand { color: $black; }
+  span.navbar-brand { 
+    color: $black; 
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  }
   .navbar-brand {
     margin: 180px .5px 0 0;
     background: rgba(255,255,255,.2);
@@ -37,6 +40,7 @@
   @media (max-width: 767px) {
     height: auto;
     padding: 0;
+    margin: 0;
     button { margin-right: 30px; }
     span.navbar-brand { display: none; }
     a.navbar-brand {
