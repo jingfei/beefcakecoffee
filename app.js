@@ -43,8 +43,15 @@ app.get('/home', function(req, res){
 
 app.get('/story', function(req, res) {
   res.render('story', {
-    title: "我們的故事 - 猛男咖啡 Beefcake COffee Roaster",
+    title: "品牌故事 - 猛男咖啡 Beefcake Coffee Roaster",
     menu_story: true
+  });
+});
+
+app.get('/news', function(req, res) {
+  res.render('news', {
+    title: "最新消息 - 猛男咖啡 Beefcake Coffee Roaster",
+    menu_news: true
   });
 });
 

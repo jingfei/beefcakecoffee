@@ -1,0 +1,68 @@
+@import "./_layout";
+
+.navbar-default .navbar-header {
+  background-image: url("../images/bg_news.jpg");
+  background-position: center 25%;
+}
+
+#main {
+  width: 80%;
+  margin: 20px auto 0;
+  .block {
+    margin: 20px 0 70px;
+    .date {
+      color: $gray;
+      font-size: 12px;
+    }
+    .title {
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    img {
+      height: 350px;
+      margin: 10px 0;
+    }
+  }
+}
+
+.input-group {
+  .form-control {
+    background: transparent;
+    border: 1px solid $gray;
+    &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+      color:    $light-black;
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color:    $light-black;
+      opacity:  1;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color:    $light-black;
+      opacity:  1;
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color:    $light-black;
+    }
+    &::-ms-input-placeholder { /* Microsoft Edge */
+      color:    $light-black;
+    }
+  }
+  
+  button.btn.btn-default {
+    border: 1px solid $gray;
+  }
+}
+
+#map {
+  h5 {
+    margin: 50px 0 20px;
+  }
+  .map-content {
+    margin: 30px 0;
+    p { margin: 10px 0;}
+  }
+  @media (max-width: 767px) {
+    display: none; 
+  }
+}
+  

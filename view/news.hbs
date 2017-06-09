@@ -1,0 +1,54 @@
+<html>
+  <head>
+    {{> head}}
+    <link rel="stylesheet" href="./css/news.css" >
+	</head>
+	<body>
+    {{> header}}
+    <div class="container-fluid">
+      <div class="rows" id="main">
+        <div class="col-md-4 col-md-push-8">
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" placeholder="搜尋...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </span>
+          </div><!-- /input-group -->
+          <div id="map">
+            <h5>HOURS & INFO</h5>
+            <div class="map-content">
+              <p style="font-weight:bold">猛男咖啡 2.0 安平店</p>
+              <iframe src="https://www.google.com/maps?q=猛男咖啡2.0&output=embed" width="100%" height="250" frameborder="0" style="border:0"></iframe>
+              <p>台南市安平區安平路42號</p>
+              <p>06 280 1966</p>
+              <p>09:00 - 23:00</p>
+            </div>
+            <div class="map-content">
+              <p style="font-weight:bold">猛男咖啡 大成精品店</p>
+              <iframe src="https://www.google.com/maps?q=猛男咖啡&output=embed" width="100%" height="250" frameborder="0" style="border:0"></iframe>
+              <p>台南市南區大成路一段32號</p>
+              <p>06 261 0686</p>
+              <p>10:00 - 18:00</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 col-md-pull-4">
+          <div class="block">
+            <div class="date">六月 8, 2017</div>
+            <h2 class="title">Title</h2>
+            <div class="content">This is content.<br/>content<br/>content</div>
+          </div>
+          <div class="block">
+            <div class="date">五月 28, 2017</div>
+            <h2 class="title">Title</h2>
+            <img src="./images/news_pic.jpg" />
+            <div class="content">This is content.<br/>content<br/>content</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{> footer }}
+    <script src="./js/common.js"></script>
+    <script src="./js/slideImage.js"></script>
+  </body>
+</html>

@@ -19,9 +19,9 @@
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <img src="./images/logo.png" style="height:50px;float:left;" />
       <ul class="nav navbar-nav">
-        <li {{# if menu_home }} class="active" {{/if}}><a href="./home">首頁 <span class="sr-only">(current)</span></a></li>
-        <li {{# if menu_story }} class="active" {{/if}}><a href="./story">品牌故事</a></li>
-        <li><a href="./news">最新消息</a></li>
+        <li {{#if menu_home }} class="active" {{/if}}><a href="./home">首頁{{#if menu_home}} <span class="sr-only">(current)</span>{{/if}}</a></li>
+        <li {{#if menu_story }} class="active" {{/if}}><a href="./story">品牌故事{{#if menu_story}} <span class="sr-only">(current)</span>{{/if}}</a></li>
+        <li {{#if menu_news }} class="active" {{/if}}><a href="./news">最新消息{{#if menu_news}} <span class="sr-only">(current)</span>{{/if}}</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">猛男菜單 <span class="caret"></span></a>
           <ul class="dropdown-menu">
