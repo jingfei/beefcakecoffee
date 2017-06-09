@@ -19,7 +19,8 @@
       margin-bottom: 20px;
     }
     img {
-      height: 350px;
+      max-height: 350px;
+      max-width: 100%;
       margin: 10px 0;
     }
   }

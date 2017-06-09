@@ -31,6 +31,9 @@ body {
 body > div.container-fluid {
   min-height: 100%; 
   padding: 0;
+  @media (max-width: 767px) {
+    margin-top: 5px;
+  }
 }
 
 .textContent {
