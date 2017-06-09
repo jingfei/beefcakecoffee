@@ -39,6 +39,9 @@ body > div.container-fluid {
   img { width: 100%; }
   h1 { padding: 20px 0; }
   p { text-align: justify; padding: 10px 0;}
+  @media (max-width: 767px) {
+    padding: 0 10px;
+  }
 }
 
 .bgContent {
