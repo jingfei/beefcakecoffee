@@ -4,7 +4,9 @@
   border-top: 1px solid $gray;
   padding: 50px 100px;
   background: black;
-  h4 { color: white; }
+  .footer-title {
+    h4 { color: white; display: inline-block;}
+  }
   p { 
     font-size: 15px; color: $gray;
     & > a > span { 
@@ -14,9 +16,9 @@
     }
   }
   .mobileonly { display: none; }
-  @media (max-width: 767px) {
+  @media (max-width: 1199px) {
     padding: 50px;
-    h4 > span { display: block; margin: 5px 0; }
+    .footer-title h4 > span { display: block; margin: 5px 0; }
     .nomobile { display: none; }
     .col-xs-6 { padding-right: 0; }
     .col-xs-6:first-of-type { 
@@ -42,7 +44,8 @@
   width: 40px;
   height: 40px;
   text-align: center;
-  i.fa-facebook { margin: 4px 0; }
+  margin-left: -10px;
+  i.fa-facebook { margin: 4px 2px; }
   i.fa-envelope-o { margin: -2px; }
   font-size: 20px;
   line-height: 1.42;
@@ -55,12 +58,18 @@
   &.mobileonly { 
     i.fa-facebook { margin: 5px 0 0 5px; }
     border-radius: 5px;  
-    float: right; 
-    margin-top: 8px;
+    margin-top: -20px;
     margin-right: 8px;
+    margin-left: 0;
     font-size: 30px;
     background: #4267b2;
     border: none;
     color: white;
+    display: none;
+  }
+  @media (max-width: 1199px) {
+    &.mobileonly {
+      display: inline-block;
+    }
   }
 }
