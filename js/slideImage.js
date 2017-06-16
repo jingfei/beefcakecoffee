@@ -1,3 +1,7 @@
+(function() {
+  setTimeout(checkSlide,500);
+})();
+
 function debounce(func, wait = 20, immediate = true) {
   var timeout;
   return function() {
