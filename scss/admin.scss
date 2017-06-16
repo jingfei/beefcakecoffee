@@ -1,0 +1,33 @@
+@import "./_layout";
+
+.collapse.navbar-collapse {
+  visibility: hidden;
+}
+
+#editor-panel {
+  display: block;
+}
+
+.block {
+  width: 80%;
+  margin: 0 auto;
+  & > div { 
+    margin: 2px;
+    background: white;
+    padding: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    &.caret-down { 
+      width: 40px; text-align: center; 
+      font-size: 22px;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+    &.content {
+      margin: 0 25px;
+      display: none;
+    }
+    h1 > input { border: none; }
+  }
+}
+

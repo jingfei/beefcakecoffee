@@ -10,6 +10,7 @@ $(window).bind("scroll", function() {
       nav = document.getElementsByClassName("navbar-default")[0],
       navbarH = document.getElementById("navbar-collapse").offsetHeight,
       container = document.getElementsByClassName("container-fluid")[1];
+  if(typeof container === "undefined") return;
   if(offset < container.offsetTop - navbarH) {
     nav.classList.remove("navbar-fixed-top");
   } else {

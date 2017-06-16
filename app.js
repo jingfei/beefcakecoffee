@@ -1,14 +1,33 @@
 var express = require('express');
 var hbs = require('hbs');
+var bodyParser = require('body-parser');
+var multer = require('multer');
 var sassMiddleware = require('node-sass-middleware');
 var uglifyMiddleware = require('express-uglify-middleware');
+var mongoose = require('mongoose');
+var session = require('express-session');
 
+var upload = multer();
 var app = express();
 
 hbs.registerPartials(__dirname + '/layout');
 
+mongoose.connect('mongodb://localhost/beefcakecoffee');
+
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/view');
+
+// for parsing application/json
+app.use(bodyParser.json());
+
+// for parsing application/xwww-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true })); 
+
+// for parsing multipart/form-data
+app.use(upload.array()); 
+
+// session
+app.use(session({secret: "bcc"}));
 
 app.use(sassMiddleware({
     src: __dirname + '/scss',
@@ -26,34 +45,7 @@ app.use(uglifyMiddleware({
 }));
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function(req, res){
-  res.render('index', { 
-    title: "猛男咖啡 Beefcake Coffee Roaster",
-    menu_home: true,
-    bigimg: true
-  });
-});
-
-app.get('/home', function(req, res){
-  res.render('index', { 
-    title: "猛男咖啡 Beefcake Coffee Roaster",
-    menu_home: true
-  });
-});
-
-app.get('/story', function(req, res) {
-  res.render('story', {
-    title: "品牌故事 - 猛男咖啡 Beefcake Coffee Roaster",
-    menu_story: true
-  });
-});
-
-app.get('/news', function(req, res) {
-  res.render('news', {
-    title: "最新消息 - 猛男咖啡 Beefcake Coffee Roaster",
-    menu_news: true
-  });
-});
+require('./routes.js')(app);
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
