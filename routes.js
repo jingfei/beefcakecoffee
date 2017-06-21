@@ -1,4 +1,14 @@
 var md5 = require('md5');
+var mongoose = require('mongoose');
+
+/* define posts model */
+var postSchema = mongoose.Schema({
+  title: String,
+  content: String,
+  date: { type: Date, default: Date.now },
+  hidden: { type: Boolean, default: false }
+});
+var Post = mongoose.model("Post", postSchema);
 
 module.exports = function (app) {
 
@@ -25,9 +35,20 @@ module.exports = function (app) {
   });
   
   app.get('/news', function(req, res) {
-    res.render('news', {
-      title: "最新消息 - 猛男咖啡 Beefcake Coffee Roaster",
-      menu_news: true
+    Post.find({}, null, {sort: {date: -1}}, function(err, resPost) {
+      const monthNames = ["一","二","三","四","五","六","七","八","九","十","十一","十二"];
+      resPost = resPost.map(function(item) { 
+        var d = item.date.getDate();
+        var m = monthNames[item.date.getMonth()];
+        var y = item.date.getFullYear();
+        item.dateFormat = m + "月 " + d + ", " + y;
+        return item;
+      });
+      res.render('news', {
+        title: "最新消息 - 猛男咖啡 Beefcake Coffee Roaster",
+        menu_news: true,
+        resPost: resPost
+      });
     });
   });
   
@@ -58,7 +79,57 @@ module.exports = function (app) {
   });
 
   app.get('/viewposts', checkAuth, function(req, res) {
-    res.render('viewposts');
+    Post.find(function(err, resPost) {
+      res.render('viewposts', {resPost: resPost});
+    });
+  });
+
+  app.post('/newpost', checkAuth, function(req, res) {
+    var postInfo = req.body;
+    if( !postInfo.title || !postInfo.content) {
+      postInfo.type = "error";
+      postInfo.message = "Please fill in both title and content.";
+      res.json(postInfo);
+    } else {
+      var newPost = new Post({
+        title: postInfo.title,
+        content: postInfo.content
+      });
+
+      newPost.save(function(err, Post){
+        if(err) {
+          postInfo.type = "error";
+          postInfo.message = "Database error.";
+          res.json(postInfo);
+        } else {
+          res.send("success");
+        }
+      });
+    }
+  });
+
+  app.put('/updatepost/:id', checkAuth, function(req, res) {
+    Post.findByIdAndUpdate(req.params.id, req.body, function(err, putRes) {
+      if(err) {
+        postInfo.type = "error";
+        postInfo.message = "Error in updating person with id "+req.params.id;
+        res.json(postInfo);
+      } else {
+        res.send("success");
+      }
+    });
+  });
+
+  app.delete('/deletepost/:id', checkAuth, function(req, res) {
+    Post.findByIdAndRemove(req.params.id, function(err, deleteRes){
+      if(err) {
+        postInfo.type = "error";
+        postInfo.message = "Error in deleting record id "+req.params.id;
+        res.json(postInfo);
+      } else {
+        res.send("success");
+      }
+    });
   });
   
 };

@@ -4,40 +4,8 @@ var expandFirst = false;
   const carets = document.querySelectorAll(".block > div");
   for(var i=0; i<carets.length; ++i)
     carets[i].addEventListener("click",expandBlock);
+  document.querySelector("#newPost").addEventListener("click",newPost);
 })();
-
-bkLib.onDomLoaded(function() {
-  var editors = new nicEditor({
-    fullPanel: true,
-    iconsPath: '/images/nicEditorIcons.gif',
-    onSave: function(content, id, instance){
-      alert('save button clicked for element '+id+' = '+content);
-    }
-  });
-  editors.setPanel('editor-panel');
-  editors.addInstance('editor-content-1');
-  editors.addInstance('editor-content-2');
-  editors.addEvent('focus', function() {
-    document.querySelector("#editor-panel").style.display = "block";
-  });
-  editors.addEvent('blur', function() {
-    document.querySelector("#editor-panel").style.display = "";
-  });
-  
-  editorNew = new nicEditor({iconsPath: '/images/nicEditorIcons.gif'}).panelInstance('editor-new');
-    // buttonList : [
-    //   'bold','italic','underline','strikethrough',
-    //   'left','center','right','justify',
-    //   'ol', 'ul',
-    //   'indent', 'outdent',
-    //   'forecolor', 'bgcolor',
-    //   'subscript','superscript',
-    //   'removeformat', 'hr'
-    // ],
-  //   fullPanel: true,
-  //   iconsPath: '/images/nicEditorIcons.gif'
-  // }).panelInstance('editor');
-});
 
 function expandBlock(e) {
   if(!expandFirst) {
@@ -68,5 +36,61 @@ function checkIfHidePanel() {
 
 function test() {
   console.log(nicEditors.findEditor('editor-content-1').getContent());
+}
+
+function newPost() {
+  var title = document.querySelector("#title-new").value;
+  var content = nicEditors.findEditor('editor-new').getContent();
+  var params = "title="+title+"&content="+content;
+  console.log(params);
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      if(this.responseText === "success") location.reload();
+      console.log("response:");
+      console.log(this.responseText);
+    }
+  };
+  xhttp.open("POST", "/newpost", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.setRequestHeader("Content-length", params.length);
+  xhttp.setRequestHeader("Connection", "close");
+  xhttp.send(params)
+}
+
+function updateId(id) {
+  var title = document.querySelector("#title-"+id).value;
+  var content = nicEditors.findEditor('editor-content-'+id).getContent();
+  var params = "title="+title+"&content="+content;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      if(this.responseText === "success") location.reload();
+      console.log("response:");
+      console.log(this.responseText);
+    }
+  };
+  xhttp.open("PUT", "/updatepost/"+id, true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.setRequestHeader("Content-length", params.length);
+  xhttp.setRequestHeader("Connection", "close");
+  xhttp.send(params)
+}
+
+function deleteId(id) {
+  if(!confirm('確定要刪除此文章？')) return;
+  var params = "_method=delete";
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      if(this.responseText === "success") location.reload();
+    }
+  };
+  xhttp.open("DELETE", "/deletepost/"+id, true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.setRequestHeader("Content-length", params.length);
+  xhttp.setRequestHeader("Connection", "close");
+  xhttp.send()
+  
 }
 

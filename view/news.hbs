@@ -33,11 +33,13 @@
           </div>
         </div>
         <div class="col-md-8 col-md-pull-4">
+          {{#each resPost}}
           <div class="block">
-            <div class="date">六月 8, 2017</div>
-            <h2 class="title">Title</h2>
-            <div class="content">This is content.<br/>content<br/>content</div>
+            <div class="date">{{dateFormat}}</div>
+            <h2 class="title">{{title}}</h2>
+            <div class="content">{{{content}}}</div>
           </div>
+          {{/each}}
           <div class="block">
             <div class="date">五月 28, 2017</div>
             <h2 class="title">Title</h2>
