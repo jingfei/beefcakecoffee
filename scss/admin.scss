@@ -21,11 +21,16 @@
     padding: 10px;
     overflow: hidden;
     white-space: nowrap;
+    &:not(.content) { height: 42px; }
     &.caret-down { 
       width: 40px; text-align: center; 
       font-size: 22px;
       padding: 10px 0;
       cursor: pointer;
+    }
+    &.dateformat {
+      font-size: 12px;
+      color: $gray;
     }
     &.content {
       margin: 0 25px;
@@ -36,6 +41,12 @@
       }
     }
     h1 > input { border: none; }
+    &#addButton {
+      cursor: pointer;
+      font-size: 30px;
+      .fa-plus-square-o { margin-top: -5px; }
+      &:hover { color: $gray; }
+    }
   }
 }
 

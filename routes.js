@@ -79,7 +79,15 @@ module.exports = function (app) {
   });
 
   app.get('/viewposts', checkAuth, function(req, res) {
-    Post.find(function(err, resPost) {
+    Post.find({}, null, {sort: {date: -1}}, function(err, resPost) {
+      const monthNames = ["一","二","三","四","五","六","七","八","九","十","十一","十二"];
+      resPost = resPost.map(function(item) { 
+        var d = item.date.getDate();
+        var m = monthNames[item.date.getMonth()];
+        var y = item.date.getFullYear();
+        item.dateFormat = m + "月 " + d + ", " + y;
+        return item;
+      });
       res.render('viewposts', {resPost: resPost});
     });
   });

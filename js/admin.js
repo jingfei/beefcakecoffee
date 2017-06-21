@@ -1,10 +1,12 @@
 var expandFirst = false;
 
 (function() {
+  const addButton = document.querySelector("#addButton").addEventListener("click", expandBlock);
   const carets = document.querySelectorAll(".block > div");
-  for(var i=0; i<carets.length; ++i)
+  for(var i=2; i<carets.length; ++i)
     carets[i].addEventListener("click",expandBlock);
   document.querySelector("#newPost").addEventListener("click",newPost);
+  document.querySelector("#clearNewPost").addEventListener("click",clearNewPost);
 })();
 
 function expandBlock(e) {
@@ -34,19 +36,20 @@ function checkIfHidePanel() {
   if(allHide) document.querySelector("#editor-panel").style.display = "";
 }
 
-function test() {
-  console.log(nicEditors.findEditor('editor-content-1').getContent());
-}
-
 function newPost() {
   var title = document.querySelector("#title-new").value;
   var content = nicEditors.findEditor('editor-new').getContent();
+  if(title.length === 0 || content.length === 0) {
+    alert("請填入標題及內容");
+    return;
+  }
   var params = "title="+title+"&content="+content;
   console.log(params);
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       if(this.responseText === "success") location.reload();
+      alert("新增發生錯誤，請聯絡管理員");
       console.log("response:");
       console.log(this.responseText);
     }
@@ -66,6 +69,7 @@ function updateId(id) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       if(this.responseText === "success") location.reload();
+      alert("更新發生錯誤，請聯絡管理員");
       console.log("response:");
       console.log(this.responseText);
     }
@@ -84,6 +88,9 @@ function deleteId(id) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       if(this.responseText === "success") location.reload();
+      alert("刪除發生錯誤，請聯絡管理員");
+      console.log("response:");
+      console.log(this.responseText);
     }
   };
   xhttp.open("DELETE", "/deletepost/"+id, true);
@@ -92,5 +99,11 @@ function deleteId(id) {
   xhttp.setRequestHeader("Connection", "close");
   xhttp.send()
   
+}
+
+function clearNewPost() {
+  if(!confirm("確認清除目前新文章內容？")) return;
+  document.querySelector("#title-new").value = '';
+  nicEditors.findEditor('editor-new').setContent('');
 }
 
