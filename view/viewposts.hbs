@@ -9,7 +9,15 @@
       <div class="row block">
         <div class="col-md-2" style="text-align:center;"><div class="btn btn-default">新增文章</div></div>
         <div class="col-md-9" id="editor-panel"></div>
-      </div>
+        <div class="col-md-10 content">
+          <h1><input placeholder="標題" /></h1>
+          <div id="editor-new"></div>
+          <div class="editor-buttons">
+            <button class="btn btn-default">新增文章</button>
+            <button class="btn btn-default">清除內容</button>
+          </div>
+        </div>
+      </div> <!-- /.block -->
       <div class="row block">
         <div class="col-md-3">title</div>
         <div class="col-md-8">
@@ -20,41 +28,30 @@
         <div class="col-md-10 content">
           <h1><input value="title" placeholder="標題" /></h1>
           <div id="editor-content-1">sdf<br/>second line</div>
-          <div>
+          <div class="editor-buttons">
+            <button class="btn btn-default" onClick="test();">更新</button>
+            <button class="btn btn-default">刪除</button>
+          </div>
+        </div>
+      </div> <!-- /.block -->
+      <div class="row block">
+        <div class="col-md-3">title</div>
+        <div class="col-md-8">
+          選一個舒適座位，點一份咖啡輕食。有餐的好咖啡館，有好咖啡的餐館，一個簡單的想法。堅持新鮮烘焙、餐點現點現做。用食的品味分享及專注生活態度，演繹這名為「夢想」的故事。
+        
+        Not only are all the coffee beans home-roasting, but also all the meals are freshly made right after your order. While fulfilling our dream founding RÊVE Café, we share our lifestyle with taste.</div>
+        <div class="col-md-1 caret-down"><i class="fa fa-caret-down fa-fw" aria-hidden="true"></i></div>
+        <div class="col-md-10 content">
+          <h1><input value="title" placeholder="標題" /></h1>
+          <div id="editor-content-2">sdf<br/>second line</div>
+          <div class="editor-buttons">
             <button class="btn btn-default">更新</button>
             <button class="btn btn-default">刪除</button>
           </div>
         </div>
-      </div>
-      <table class="table table-bordered">
-        <thead>
-          <tr><th>標題</th><th>發布日期</th><th>查閱/更新/刪除</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td>2</td><td>3</td></tr>
-        </tbody>
-      </table>
+      </div> <!-- /.block -->
     </div>
     <script src="./js/frame/nicEdit.js"></script>
     <script src="./js/admin.js"></script>
-    <script>
-bkLib.onDomLoaded(function() {
-  editor = new nicEditor({iconsPath: '/images/nicEditorIcons.gif'});
-  editor.setPanel('editor-panel');
-  editor.addInstance('editor-content-1');
-    // buttonList : [
-    //   'bold','italic','underline','strikethrough',
-    //   'left','center','right','justify',
-    //   'ol', 'ul',
-    //   'indent', 'outdent',
-    //   'forecolor', 'bgcolor',
-    //   'subscript','superscript',
-    //   'removeformat', 'hr'
-    // ],
-  //   fullPanel: true,
-  //   iconsPath: '/images/nicEditorIcons.gif'
-  // }).panelInstance('editor');
-});
-    </script>
   </body>
 </html>

@@ -5,12 +5,16 @@
 }
 
 #editor-panel {
-  display: block;
+  display: none;
+}
+
+#editor-new {
+  border: 1px solid $gray;
 }
 
 .block {
   width: 80%;
-  margin: 0 auto;
+  margin: 5px auto;
   & > div { 
     margin: 2px;
     background: white;
@@ -26,6 +30,10 @@
     &.content {
       margin: 0 25px;
       display: none;
+      & > div { width: 100%; }
+      & > div.editor-buttons {
+        margin-top: 10px;
+      }
     }
     h1 > input { border: none; }
   }
