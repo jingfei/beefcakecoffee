@@ -1,5 +1,9 @@
 var md5 = require('md5');
 var mongoose = require('mongoose');
+var mime = require('mime');
+var path = require('path');
+var NEWS_IMAGE_PATH = path.resolve(__dirname, '../writable/');
+var IMAGE_TYPES = ['images/jpeg', 'image/png'];
 
 /* define posts model */
 var postSchema = mongoose.Schema({
@@ -9,6 +13,32 @@ var postSchema = mongoose.Schema({
   hidden: { type: Boolean, default: false }
 });
 var Post = mongoose.model("Post", postSchema);
+
+/* deploy */
+const exec = require("child_process").exec;
+const async = require("async");
+
+const projectPath = process.argv[2];
+const absolutePath = __dirname;
+const cmds = ["git pull"].concat(process.argv.filter((arg, index) => { return index > 2; }));
+
+const execCmds = cmds.map((cmd) => {
+  return function(callback) {
+    exec(`cd ${absolutePath} && ${cmd}`, {maxBuffer: 1024 * 600}, (err, stdout, stderr) => {
+      if(err) return callback(err);
+      callback(null, `--- ${cmd} ---:\n stdout: ${stdout} \n stderr: ${stderr}\n`);
+    });
+  };
+});
+
+const updateProject = function(callback) {
+  async.series(
+    execCmds
+    , function(err, results) {
+      if(err) return callback(err);
+      return callback(null, results.join(""));
+    });
+};
 
 module.exports = function (app) {
 
@@ -56,7 +86,6 @@ module.exports = function (app) {
     var post = req.body;
     if(post.user === 'beefcakecoffee' && md5(post.password) === '0c52b9aeec07bb216a1c6cf46e33510b') {
       req.session.user = "beefcakecoffee";
-      // req.session.destroy();
       res.redirect('/viewposts');
     } else {
       res.redirect('/');
@@ -71,6 +100,7 @@ module.exports = function (app) {
   
   app.get('/logout', function (req, res) {
     delete req.session.user_id;
+    req.session.destroy();
     res.redirect('/');
   });   
   
@@ -137,6 +167,80 @@ module.exports = function (app) {
       } else {
         res.send("success");
       }
+    });
+  });
+/*
+  app.post('/admin/upload', checkAuth, function(req, res) {
+    var is;
+    var os;
+    var targetPath;
+    var targetName;
+    var tempPath = req.files.file.path;
+    //get the mime type of the file
+    var type = mime.lookup(req.files.file.path);
+    //get the extension of the file
+    var extension = req.files.file.path.split(/[. ]+/).pop();
+
+    //check to see if we support the file type
+    if (IMAGE_TYPES.indexOf(type) == -1) {
+    return res.send(415, 'Supported image formats: jpeg, jpg, jpe, png.');
+    }
+
+    //create a new name for the image
+    targetName = uid(22) + '.' + extension;
+
+    //determine the new path to save the image
+    targetPath = path.join(TARGET_PATH, targetName);
+
+    //create a read stream in order to read the file
+    is = fs.createReadStream(tempPath);
+
+    //create a write stream in order to write the a new file
+    os = fs.createWriteStream(targetPath);
+
+    is.pipe(os);
+
+    //handle error
+    is.on('error', function() {
+        if (err) {
+        return res.send(500, 'Something went wrong');
+        }
+        });
+
+    //if we are done moving the file
+    is.on('end', function() {
+
+        //delete file from temp folder
+        fs.unlink(tempPath, function(err) {
+            if (err) {
+            return res.send(500, 'Something went wrong');
+            }
+
+            //send something nice to user
+            res.render('image', {
+nametargetName,
+typetype,
+exteion: extension
+});
+
+            });//#end - unlink
+        });//#end - on.end
+  });
+  */
+
+  app.get('/deploy', function(req, res) {
+    console.log("deploy");
+    updateProject((e, result) => {
+      var response = "";
+      if(e) {
+        console.error(`exec error: ${e}`);
+        response += `exec error: ${e}`;
+      }
+      if(result) {
+        console.log(result);
+        response += `\n ${result}`;
+      }
+      res.end(response);
     });
   });
   
