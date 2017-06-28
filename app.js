@@ -12,6 +12,7 @@ var app = express();
 
 hbs.registerPartials(__dirname + '/layout');
 
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/beefcakecoffee');
 
 app.set('view engine', 'hbs');
@@ -44,6 +45,7 @@ app.use(uglifyMiddleware({
   prefix: '/js'
 }));
 app.use(express.static(__dirname + '/public'));
+app.use('/images/news', express.static(__dirname + '/writable'));
 
 require('./routes.js')(app);
 
