@@ -1,9 +1,12 @@
 var md5 = require('md5');
 var mongoose = require('mongoose');
 var mime = require('mime');
+var fs = require('fs');
 var path = require('path');
-var NEWS_IMAGE_PATH = path.resolve(__dirname, '../writable/');
-var IMAGE_TYPES = ['images/jpeg', 'image/png'];
+var multer = require('multer');
+var NEWS_IMAGE_PATH = path.resolve(__dirname, 'writable/');
+var upload = multer({dest: NEWS_IMAGE_PATH});
+var IMAGE_TYPES = ['image/jpeg', 'image/png'];
 
 /* define posts model */
 var postSchema = mongoose.Schema({
@@ -169,67 +172,20 @@ module.exports = function (app) {
       }
     });
   });
-/*
-  app.post('/admin/upload', checkAuth, function(req, res) {
-    var is;
-    var os;
-    var targetPath;
-    var targetName;
-    var tempPath = req.files.file.path;
-    //get the mime type of the file
-    var type = mime.lookup(req.files.file.path);
-    //get the extension of the file
-    var extension = req.files.file.path.split(/[. ]+/).pop();
 
-    //check to see if we support the file type
-    if (IMAGE_TYPES.indexOf(type) == -1) {
-    return res.send(415, 'Supported image formats: jpeg, jpg, jpe, png.');
-    }
+  app.post('/admin/upload', checkAuth, upload.any(), function(req, res) {
+    var file = req.files[0];
 
-    //create a new name for the image
-    targetName = uid(22) + '.' + extension;
-
-    //determine the new path to save the image
-    targetPath = path.join(TARGET_PATH, targetName);
-
-    //create a read stream in order to read the file
-    is = fs.createReadStream(tempPath);
-
-    //create a write stream in order to write the a new file
-    os = fs.createWriteStream(targetPath);
-
-    is.pipe(os);
-
-    //handle error
-    is.on('error', function() {
-        if (err) {
-        return res.send(500, 'Something went wrong');
-        }
-        });
-
-    //if we are done moving the file
-    is.on('end', function() {
-
-        //delete file from temp folder
-        fs.unlink(tempPath, function(err) {
-            if (err) {
-            return res.send(500, 'Something went wrong');
-            }
-
-            //send something nice to user
-            res.render('image', {
-nametargetName,
-typetype,
-exteion: extension
-});
-
-            });//#end - unlink
-        });//#end - on.end
+    res.json({
+      "data": {
+        "width": "500",
+        "link": "/images/news/"+file.filename,
+        "total": file.size
+      }
+    });
   });
-  */
 
   app.get('/deploy', function(req, res) {
-    console.log("deploy");
     updateProject((e, result) => {
       var response = "";
       if(e) {

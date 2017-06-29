@@ -1,13 +1,11 @@
 var express = require('express');
 var hbs = require('hbs');
 var bodyParser = require('body-parser');
-var multer = require('multer');
 var sassMiddleware = require('node-sass-middleware');
 var uglifyMiddleware = require('express-uglify-middleware');
 var mongoose = require('mongoose');
 var session = require('express-session');
 
-var upload = multer();
 var app = express();
 
 hbs.registerPartials(__dirname + '/layout');
@@ -25,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 // for parsing multipart/form-data
-app.use(upload.array()); 
+// app.use(upload.array()); 
 
 // session
 app.use(session({secret: "bcc"}));
