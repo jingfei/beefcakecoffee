@@ -44,20 +44,19 @@ function newPost() {
     return;
   }
   var params = "title="+title+"&content="+content;
-  console.log(params);
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      if(this.responseText === "success") location.reload();
-      alert("新增發生錯誤，請聯絡管理員");
-      console.log("response:");
-      console.log(this.responseText);
+      if(this.responseText.includes("success")) location.reload();
+      else {
+        alert("新增發生錯誤，請聯絡管理員");
+        console.log("response:");
+        console.log(this.responseText);
+      }
     }
   };
   xhttp.open("POST", "/newpost", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.setRequestHeader("Content-length", params.length);
-  xhttp.setRequestHeader("Connection", "close");
   xhttp.send(params)
 }
 
@@ -68,10 +67,12 @@ function updateId(id) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      if(this.responseText === "success") location.reload();
-      alert("更新發生錯誤，請聯絡管理員");
-      console.log("response:");
-      console.log(this.responseText);
+      if(this.responseText.includes("success")) location.reload();
+      else {
+        alert("更新發生錯誤，請聯絡管理員");
+        console.log("response:");
+        console.log(this.responseText);
+      }
     }
   };
   xhttp.open("PUT", "/updatepost/"+id, true);
@@ -87,10 +88,12 @@ function deleteId(id) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      if(this.responseText === "success") location.reload();
-      alert("刪除發生錯誤，請聯絡管理員");
-      console.log("response:");
-      console.log(this.responseText);
+      if(this.responseText.includes("success")) location.reload();
+      else {
+        alert("刪除發生錯誤，請聯絡管理員");
+        console.log("response:");
+        console.log(this.responseText);
+      }
     }
   };
   xhttp.open("DELETE", "/deletepost/"+id, true);

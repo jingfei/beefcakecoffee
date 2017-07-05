@@ -198,7 +198,7 @@ module.exports = function (app) {
     });
   });
 
-  app.get('/deploy', function(req, res) {
+  app.post('/deploy', function(req, res) {
     updateProject((e, result) => {
       var response = "";
       if(e) {
