@@ -1,6 +1,5 @@
 var md5 = require('md5');
 var mongoose = require('mongoose');
-var mime = require('mime');
 var fs = require('fs');
 var path = require('path');
 var multer = require('multer');
@@ -64,6 +63,20 @@ module.exports = function (app) {
     res.render('story', {
       title: "品牌故事 - 猛男咖啡 Beefcake Coffee Roaster",
       menu_story: true
+    });
+  });
+  
+  app.get('/venue', function(req, res) {
+    res.render('venue', {
+      title: "場地租借 - 猛男咖啡 Beefcake Coffee Roaster",
+      menu_venue: true
+    });
+  });
+  
+  app.get('/about', function(req, res) {
+    res.render('about', {
+      title: "分店資訊 - 猛男咖啡 Beefcake Coffee Roaster",
+      menu_about: true
     });
   });
   

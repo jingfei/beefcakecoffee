@@ -29,10 +29,10 @@
             <li><a href="./menu">安平店</a></li>
           </ul>
         </li>
-        <li><a href="#">訓練課程</a></li>
-        <li><a href="#">場地租借</a></li>
-        <li><a href="#">分店資訊</a></li>
-        <li><a href="#">訂購咖啡</a></li>
+        <!-- <li><a href="#">訓練課程</a></li> -->
+        <li {{#if menu_venue }}class="active"{{/if}}><a href="./venue">場地租借{{#if menu_venue}} <span class="sr-only">(current)</span>{{/if}}</a></li>
+        <li {{#if menu_about}}class="active"{{/if}}><a href="./about">分店資訊{{#if menu_about}} <span class="sr-only">(current)</span>{{/if}}</a></li>
+        <!-- <li><a href="#">訂購咖啡</a></li> -->
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
