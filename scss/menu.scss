@@ -5,7 +5,17 @@
   padding-top: 50px;
   padding-bottom: 50px;
   margin-bottom: 50px;
-  img { width: auto; height: 40%; }
+}
+
+.imgContent {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  &.getPicture > img {
+    visibility: hidden;
+    opacity: 0;
+    transition:visibility 0.3s linear,opacity 0.3s linear;
+  }
 }
 
 .menu_title {

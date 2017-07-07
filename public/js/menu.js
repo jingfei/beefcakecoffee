@@ -6,13 +6,15 @@
 
 function changePhoto(e) {
   if(e.target.tagName.toUpperCase() !== "LI") return;
-  img = e.currentTarget.parentElement.parentElement.querySelector("img");
-  img.src = "/images/story_2.jpg";
+  imgContent = e.currentTarget.parentElement.parentElement.querySelector(".imgContent");
+  imgContent.classList.add("getPicture");
+  imgContent.style.backgroundImage = "url(/images/story_2.jpg)";
 }
 
 function recoverPhoto(e) {
   if(e.target.tagName.toUpperCase() !== "LI") return;
-  img = e.currentTarget.parentElement.parentElement.querySelector("img");
-  img.src = "/images/story_4.jpg";
+  img = e.currentTarget.parentElement.parentElement.querySelector(".imgContent");
+  imgContent.classList.remove("getPicture");
+  imgContent.style.backgroundImage = "";
 }
 
