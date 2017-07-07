@@ -39,7 +39,7 @@
     <script src="./js/admin.js"></script>
     <script>
 bkLib.onDomLoaded(function() {
-  var editors = new nicEditor({
+  var params = {
     iconsPath: '/images/nicEditorIcons.gif',
     uploadURI: '/admin/upload',
     buttonList : [
@@ -54,7 +54,8 @@ bkLib.onDomLoaded(function() {
       'link', 'unlink',
       'fontSize', 'fontFormat'
     ]
-  });
+  };
+  var editors = new nicEditor(params);
   editors.setPanel('editor-panel');
   {{#each resPost}}editors.addInstance('editor-content-{{_id}}');{{/each}}
   editors.addEvent('focus', function() {
@@ -64,7 +65,7 @@ bkLib.onDomLoaded(function() {
     document.querySelector("#editor-panel").style.display = "";
   });
   
-  editorNew = new nicEditor({iconsPath: '/images/nicEditorIcons.gif'}).panelInstance('editor-new');
+  editorNew = new nicEditor(params).panelInstance('editor-new');
 });
     </script>
   </body>

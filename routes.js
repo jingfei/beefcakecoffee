@@ -140,6 +140,8 @@ module.exports = function (app) {
 
   app.post('/newpost', checkAuth, function(req, res) {
     var postInfo = req.body;
+    postInfo.title = unescape(postInfo.title);
+    postInfo.content = unescape(postInfo.content);
     if( !postInfo.title || !postInfo.content) {
       postInfo.type = "error";
       postInfo.message = "Please fill in both title and content.";
@@ -163,7 +165,10 @@ module.exports = function (app) {
   });
 
   app.put('/updatepost/:id', checkAuth, function(req, res) {
-    Post.findByIdAndUpdate(req.params.id, req.body, function(err, putRes) {
+    var postInfo = req.body;
+    postInfo.title = unescape(postInfo.title);
+    postInfo.content = unescape(postInfo.content);
+    Post.findByIdAndUpdate(req.params.id, postInfo, function(err, putRes) {
       if(err) {
         postInfo.type = "error";
         postInfo.message = "Error in updating person with id "+req.params.id;
@@ -181,6 +186,19 @@ module.exports = function (app) {
         postInfo.message = "Error in deleting record id "+req.params.id;
         res.json(postInfo);
       } else {
+        if(deleteRes.content) {
+          var regex = /src="\/images\/news\/([\w-]{32})"/g;
+          var regResult = (deleteRes.content).match(regex);
+          if(regResult) {
+            regResult = new Set(regResult);
+            for(var i=0; i<regResult.length; ++i) {
+              console.log(regResult[i]);
+              regResult[i] = regResult[i].slice(18,-1);
+              console.log(regResult[i]);
+              fs.unlink(__dirname+"/writable/"+regResult[i]);
+            }
+          }
+        }
         res.send("success");
       }
     });
@@ -217,7 +235,7 @@ module.exports = function (app) {
 
 function checkAuth(req, res, next) {
   if (req.session.user !== "beefcakecoffee") {
-    res.send('You are not authorized to view this page');
+    res.redirect('/');
   } else {
     next();
   }

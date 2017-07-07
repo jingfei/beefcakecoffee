@@ -24,9 +24,6 @@ app.use(bodyParser.json());
 // for parsing application/xwww-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true })); 
 
-// for parsing multipart/form-data
-// app.use(upload.array()); 
-
 // session
 app.use(session({secret: "bcc"}));
 

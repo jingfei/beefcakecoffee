@@ -43,43 +43,33 @@ function newPost() {
     alert("請填入標題及內容");
     return;
   }
-  var params = "title="+title+"&content="+content;
+  var params = "title="+escape(title)+"&content="+escape(content);
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       if(this.responseText.includes("success")) location.reload();
-      else {
-        alert("新增發生錯誤，請聯絡管理員");
-        console.log("response:");
-        console.log(this.responseText);
-      }
+      else alert("新增發生錯誤，請聯絡管理員:\n"+ JSON.parse(this.responseText).message);
     }
   };
   xhttp.open("POST", "/newpost", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send(params)
+  xhttp.send(encodeURI(params));
 }
 
 function updateId(id) {
   var title = document.querySelector("#title-"+id).value;
   var content = nicEditors.findEditor('editor-content-'+id).getContent();
-  var params = "title="+title+"&content="+content;
+  var params = "title="+escape(title)+"&content="+escape(content);
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       if(this.responseText.includes("success")) location.reload();
-      else {
-        alert("更新發生錯誤，請聯絡管理員");
-        console.log("response:");
-        console.log(this.responseText);
-      }
+      else alert("更新發生錯誤，請聯絡管理員:\n"+ JSON.parse(this.responseText).message);
     }
   };
   xhttp.open("PUT", "/updatepost/"+id, true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.setRequestHeader("Content-length", params.length);
-  xhttp.setRequestHeader("Connection", "close");
-  xhttp.send(params)
+  xhttp.send(encodeURI(params));
 }
 
 function deleteId(id) {
@@ -89,17 +79,11 @@ function deleteId(id) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       if(this.responseText.includes("success")) location.reload();
-      else {
-        alert("刪除發生錯誤，請聯絡管理員");
-        console.log("response:");
-        console.log(this.responseText);
-      }
+      else alert("刪除發生錯誤，請聯絡管理員:\n"+ JSON.parse(this.responseText).message);
     }
   };
   xhttp.open("DELETE", "/deletepost/"+id, true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.setRequestHeader("Content-length", params.length);
-  xhttp.setRequestHeader("Connection", "close");
   xhttp.send()
   
 }
