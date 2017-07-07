@@ -79,6 +79,20 @@ module.exports = function (app) {
       menu_about: true
     });
   });
+
+  app.get('/menu', function(req, res) {
+    res.render('menu', {
+      title: "猛男大成店菜單 - 猛男咖啡 Beefcake Coffee Roaster",
+      menu_menu: true
+    });
+  });
+
+  app.get('/menu2', function(req, res) {
+    res.render('menu2', {
+      title: "猛男安平店菜單 - 猛男咖啡 Beefcake Coffee Roaster",
+      menu_menu2: true
+    });
+  });
   
   app.get('/news', function(req, res) {
     Post.find({}, null, {sort: {date: -1}}, function(err, resPost) {

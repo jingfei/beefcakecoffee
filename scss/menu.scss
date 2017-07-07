@@ -1,0 +1,29 @@
+@import "./_layout";
+
+.textContent {
+  &:nth-child(even) { background: white; }
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  img { width: auto; height: 40%; }
+}
+
+.menu_title {
+  border-bottom: 1px solid $gray;
+  text-align: center;
+  padding-bottom: 30px;
+  .small { font-size: .6em; }
+}
+
+.menu_list {
+  list-style-type: none;
+  & > li {
+    color: $light-black;
+    margin: 20px 0;
+  }
+  & > li:hover {
+    color: $gray;
+    cursor: pointer;
+  }
+}
+

@@ -114,6 +114,11 @@
     animation-duration: 200ms;
     animation-fill-mode: ease-in;
   }
+  .dropdown-menu > .active > a,
+  .dropdown-menu > .active > a:focus,
+  .dropdown-menu > .active > a:hover {
+    background-color: $brown;
+  }
   @media (max-width: 767px) {
     ul.nav { 
       margin-left: 0; 

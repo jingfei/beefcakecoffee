@@ -22,11 +22,11 @@
         <li {{#if menu_home }} class="active" {{/if}}><a href="./home">首頁{{#if menu_home}} <span class="sr-only">(current)</span>{{/if}}</a></li>
         <li {{#if menu_story }} class="active" {{/if}}><a href="./story">品牌故事{{#if menu_story}} <span class="sr-only">(current)</span>{{/if}}</a></li>
         <li {{#if menu_news }} class="active" {{/if}}><a href="./news">最新消息{{#if menu_news}} <span class="sr-only">(current)</span>{{/if}}</a></li>
-        <li class="dropdown">
+        <li class="dropdown{{#if menu_menu}} active{{/if}}{{#if menu_menu2}} active{{/if}}">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">猛男菜單 <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="./menu">大成店</a></li>
-            <li><a href="./menu">安平店</a></li>
+            <li {{#if menu_menu}}class="active"{{/if}}><a href="./menu">大成店</a></li>
+            <li {{#if menu_menu2}}class="active"{{/if}}><a href="./menu2">安平店</a></li>
           </ul>
         </li>
         <!-- <li><a href="#">訓練課程</a></li> -->
