@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // session
 app.use(session({secret: "bcc"}));
-
+/*
 app.use(sassMiddleware({
     src: __dirname + '/scss',
     dest: __dirname + '/public/css',
@@ -41,6 +41,7 @@ app.use(uglifyMiddleware({
   debug: true,
   prefix: '/js'
 }));
+*/
 app.use(express.static(__dirname + '/public'));
 app.use('/images/news', express.static(__dirname + '/writable'));
 
