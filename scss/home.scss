@@ -78,6 +78,11 @@
       width: 100%;
     }
   }
+  @media (max-width: 767px) {
+    .textContent {
+      padding: 10px;
+    }
+  }
 }
 
 .content {

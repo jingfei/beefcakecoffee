@@ -14,6 +14,9 @@ html, body {
   background: $light-gray;
   font-family: 'NotoSansCJKtc-Regular', 'Noto Sans', "微軟雅黑","Microsoft YaHei", Helvetica, 'sans-serif';
   font-size: 16px;
+  @media (max-width: 767px) {
+    overflow-x: hidden;
+  }
 }
 
 body {
