@@ -14,7 +14,7 @@ function checkBackground() {
     if (isScrolled) {
       let opacity = (scrollBottom - homeBack.offsetTop) / homeBack.offsetHeight;
       opacity = opacity - .7 < 0 ? 0 : opacity - .7;
-      homeBack.firstElementChild.style.opacity = opacity * .5;
+      homeBack.firstElementChild.style.opacity = opacity * .7;
     } 
   });
 }
