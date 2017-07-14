@@ -63,13 +63,20 @@
 
 .homeBack {
   background-attachment: fixed;
-  height: 100vh;
   background-size: cover;
-  div {
-    background: black;
-    opacity: 0;
-    height: 100%;
-    width: 100%;
+  .textContent {
+    margin: 0;
+    padding: 130px 150px 150px;
+    background: $light-gray;
+  }
+  &.pureBack {
+    height: 100vh;
+    div {
+      background: black;
+      opacity: 0;
+      height: 100%;
+      width: 100%;
+    }
   }
 }
 
