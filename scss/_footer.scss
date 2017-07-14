@@ -5,6 +5,7 @@
   padding: 50px 100px;
   background: black;
   .footer-title {
+    margin-top: 50px;
     h4 { color: white; display: inline-block;}
   }
   p { 
@@ -18,7 +19,10 @@
   .mobileonly { display: none; }
   @media (max-width: 1199px) {
     padding: 50px;
-    .footer-title h4 > span { display: block; margin: 5px 0; }
+    .footer-title {
+      margin-top: 0;
+      h4 > span { display: block; margin: 5px 0; }
+    }
     .nomobile { display: none; }
     .col-xs-6 { padding-right: 0; }
     .col-xs-6:first-of-type { 
@@ -28,6 +32,10 @@
     .col-md-4 { padding: 0; }
     .mobileonly { display: block; }
   }
+}
+
+#joinus {
+  max-width: 500px;
 }
 
 #footer button.btn-default {

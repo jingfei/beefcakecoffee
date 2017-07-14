@@ -41,6 +41,7 @@ body > div.container-fluid {
   padding: 0 150px;
   margin: 130px 0 150px;
   line-height: 1.8em;
+  font-size: 1.1em;
   img { width: 100%; }
   h1 { padding: 20px 0; }
   p { text-align: justify; padding: 10px 0;}
@@ -54,7 +55,7 @@ body > div.container-fluid {
   background-position: center;
   .bgText {
     margin: 50px 0;
-    background: rgba(255,255,255,.4);
+    background: rgba(0,0,0,.4);
     color: white;
     min-height: 200px;
     h1 { color: white; }
