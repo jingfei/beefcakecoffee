@@ -51,6 +51,10 @@ module.exports = function (app) {
       bigimg: true
     });
   });
+
+  app.get('/sitemap', function(req, res){
+    res.sendfile(__dirname+'/view/sitemap.xml');
+  });
   
   app.get('/home', function(req, res){
     res.render('index', { 
