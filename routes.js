@@ -47,7 +47,7 @@ module.exports = function (app) {
   app.get('/', function(req, res){
     res.render('index', { 
       title: "猛男咖啡 Beefcake Coffee Roaster",
-      description: "home - beefcake coffee - Enjoy everything about Coffee",
+      description: "home - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
       menu_home: true,
       bigimg: true
     });
@@ -60,7 +60,7 @@ module.exports = function (app) {
   app.get('/home', function(req, res){
     res.render('index', { 
       title: "猛男咖啡 Beefcake Coffee Roaster",
-      description: "home - beefcake coffee - Enjoy everything about Coffee",
+      description: "home - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
       menu_home: true
     });
   });
@@ -68,7 +68,7 @@ module.exports = function (app) {
   app.get('/story', function(req, res) {
     res.render('story', {
       title: "品牌故事 - 猛男咖啡 Beefcake Coffee Roaster",
-      description: "story - beefcake coffee - Enjoy everything about Coffee",
+      description: "story - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
       menu_story: true
     });
   });
@@ -76,7 +76,7 @@ module.exports = function (app) {
   app.get('/venue', function(req, res) {
     res.render('venue', {
       title: "場地租借 - 猛男咖啡 Beefcake Coffee Roaster",
-      description: "venue - beefcake coffee - Enjoy everything about Coffee",
+      description: "venue - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
       menu_venue: true
     });
   });
@@ -84,7 +84,7 @@ module.exports = function (app) {
   app.get('/about', function(req, res) {
     res.render('about', {
       title: "分店資訊 - 猛男咖啡 Beefcake Coffee Roaster",
-      description: "about - beefcake coffee - Enjoy everything about Coffee",
+      description: "about - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
       menu_about: true
     });
   });
@@ -92,7 +92,7 @@ module.exports = function (app) {
   app.get('/menu', function(req, res) {
     res.render('menu', {
       title: "猛男大成店菜單 - 猛男咖啡 Beefcake Coffee Roaster",
-      description: "menu - beefcake coffee - Enjoy everything about Coffee",
+      description: "menu - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
       menu_menu: true
     });
   });
@@ -100,7 +100,7 @@ module.exports = function (app) {
   app.get('/menu2', function(req, res) {
     res.render('menu2', {
       title: "猛男安平店菜單 - 猛男咖啡 Beefcake Coffee Roaster",
-      description: "menu 2.0 - beefcake coffee - Enjoy everything about Coffee",
+      description: "menu 2.0 - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
       menu_menu2: true
     });
   });
@@ -117,7 +117,7 @@ module.exports = function (app) {
       });
       res.render('news', {
         title: "最新消息 - 猛男咖啡 Beefcake Coffee Roaster",
-        description: "news - beefcake coffee - Enjoy everything about Coffee",
+        description: "news - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
         menu_news: true,
         resPost: resPost
       });
