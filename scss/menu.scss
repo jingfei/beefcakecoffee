@@ -30,8 +30,9 @@
   & > li {
     color: $light-black;
     margin: 20px 0;
+    &[data-src] { text-decoration: underline; }
   }
-  & > li:hover {
+  & > li[data-src]:hover {
     color: $gray;
     cursor: pointer;
   }
