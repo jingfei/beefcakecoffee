@@ -7,8 +7,11 @@
 function changePhoto(e) {
   if(e.target.tagName.toUpperCase() !== "LI") return;
   imgContent = e.currentTarget.parentElement.parentElement.querySelector(".imgContent");
-  imgContent.classList.add("getPicture");
-  imgContent.style.backgroundImage = "url(/images/story_2.jpg)";
+  src = e.target.getAttribute('data-src');
+  if(src.length) {
+    imgContent.classList.add("getPicture");
+    imgContent.style.backgroundImage = "url(/images/menu/"+src+")";
+  }
 }
 
 function recoverPhoto(e) {
