@@ -9,41 +9,49 @@
 <url>
   <loc>http://beefcakecoffee.com/</loc>
   <lastmod>2017-07-16T04:45:22+00:00</lastmod>
+  <xhtml:link rel="alternate" hreflang="zh-tw" href="http://beefcakecoffee.com/" />
   <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://beefcakecoffee.com/home</loc>
   <lastmod>2017-07-16T04:45:22+00:00</lastmod>
+  <xhtml:link rel="alternate" hreflang="zh-tw" href="http://beefcakecoffee.com/home" />
   <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://beefcakecoffee.com/story</loc>
   <lastmod>2017-07-16T04:45:22+00:00</lastmod>
+  <xhtml:link rel="alternate" hreflang="zh-tw" href="http://beefcakecoffee.com/story" />
   <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://beefcakecoffee.com/news</loc>
   <lastmod>2017-07-16T04:45:22+00:00</lastmod>
+  <xhtml:link rel="alternate" hreflang="zh-tw" href="http://beefcakecoffee.com/news" />
   <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://beefcakecoffee.com/menu</loc>
   <lastmod>2017-07-16T04:45:22+00:00</lastmod>
+  <xhtml:link rel="alternate" hreflang="zh-tw" href="http://beefcakecoffee.com/menu" />
   <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://beefcakecoffee.com/menu2</loc>
   <lastmod>2017-07-16T04:45:22+00:00</lastmod>
+  <xhtml:link rel="alternate" hreflang="zh-tw" href="http://beefcakecoffee.com/menu2" />
   <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://beefcakecoffee.com/venue</loc>
   <lastmod>2017-07-16T04:45:22+00:00</lastmod>
+  <xhtml:link rel="alternate" hreflang="zh-tw" href="http://beefcakecoffee.com/venue" />
   <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://beefcakecoffee.com/about</loc>
   <lastmod>2017-07-16T04:45:22+00:00</lastmod>
+  <xhtml:link rel="alternate" hreflang="zh-tw" href="http://beefcakecoffee.com/about" />
   <changefreq>monthly</changefreq>
 </url>
 </urlset>
