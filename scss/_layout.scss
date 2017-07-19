@@ -50,6 +50,7 @@ body > div.container-fluid {
   p { text-align: justify; padding: 10px 0;}
   @media (max-width: 767px) {
     padding: 0 10px;
+    margin: 20px 0;
   }
 }
 
@@ -78,6 +79,12 @@ body > div.container-fluid {
   display: inline-block;
   vertical-align: middle;
   float: none;
+  @media (max-width: 767px) {
+    & > img { 
+      margin-left: 0 !important; 
+      width: 100% !important; 
+    }
+  }
 }
 
 .slide-in {

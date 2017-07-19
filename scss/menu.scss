@@ -18,11 +18,22 @@
   }
 }
 
+.vcenter {
+  @media (max-width: 1199px) {
+    width: 100%;
+  }
+}
+
 .menu_title {
   border-bottom: 1px solid $gray;
   text-align: center;
   padding-bottom: 30px;
   .small { font-size: .6em; }
+  @media (max-width: 767px) {
+    text-align: left;
+    padding-bottom: 20px;
+    .small { display: block; margin-top: 5px; }
+  }
 }
 
 .menu_list {

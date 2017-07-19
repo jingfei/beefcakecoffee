@@ -76,6 +76,12 @@
     }
     img { display: block; }
   }
+  @media (max-width: 1199px) {
+    .navbar-collapse {
+      padding: 0 15px;
+      ul.nav { margin-left: 10px; }
+    }
+  }
   @media (max-width: 767px) {
     position: fixed;
     .navbar-collapse {
@@ -119,6 +125,9 @@
   .dropdown-menu > li > a:hover {
     background-color: transparent;
     color: $brown;
+  }
+  @media (max-width: 1199px) {
+    ul.nav { margin-left: 50px; }
   }
   @media (max-width: 767px) {
     ul.nav { 

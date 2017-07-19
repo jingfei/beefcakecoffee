@@ -3,6 +3,9 @@
 #img-container { 
   overflow: hidden; 
   height: 600px;
+  @media (max-width: 1199px) {
+    width: 100%;
+  }
 }
 
 #VIP1, #VIP2, #origin-img { 
@@ -16,6 +19,7 @@
 }
 
 .VIP1, .VIP2 { cursor: pointer; }
+h1.VIP1, h1.VIP2 { text-decoration: underline; }
 
 .vip-hover { opacity: .8; color: gray; }
 

@@ -36,6 +36,7 @@
 
 #joinus {
   max-width: 500px;
+  margin: 0 auto;
 }
 
 #footer button.btn-default {
@@ -66,7 +67,7 @@
   &.mobileonly { 
     i.fa-facebook { margin: 5px 0 0 5px; }
     border-radius: 5px;  
-    margin-top: -20px;
+    margin-top: -10px;
     margin-right: 8px;
     margin-left: 0;
     font-size: 30px;

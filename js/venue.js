@@ -2,6 +2,10 @@
   const vip = document.querySelectorAll(".VIP1,.VIP2");
   for(var i=0; i<vip.length; ++i) vip[i].addEventListener("mouseover",changePhoto);
   for(var i=0; i<vip.length; ++i) vip[i].addEventListener("mouseout",recoverPhoto);
+  var imgContainer = document.querySelector("#img-container");
+  const originImg = document.querySelector("#origin-img");
+  imgContainer.style.height = originImg.offsetHeight + 'px';
+
 })();
 
 function changePhoto(e) {
