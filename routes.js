@@ -105,6 +105,13 @@ module.exports = function (app) {
     });
   });
   
+  app.get('/joinus', function(req, res) {
+    res.render('joinus', {
+      title: "加入我們 - 猛男咖啡 Beefcake Coffee Roaster",
+      description: "join us - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee"
+    });
+  });
+  
   app.get('/news', function(req, res) {
     Post.find({}, null, {sort: {date: -1}}, function(err, resPost) {
       const monthNames = ["一","二","三","四","五","六","七","八","九","十","十一","十二"];
@@ -123,7 +130,7 @@ module.exports = function (app) {
       });
     });
   });
-  
+
   app.post('/login', function(req, res) {
     var post = req.body;
     if(post.user === 'beefcakecoffee' && md5(post.password) === '0c52b9aeec07bb216a1c6cf46e33510b') {
