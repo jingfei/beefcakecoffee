@@ -9,29 +9,24 @@ function changePhoto(e) {
   if(vip === 1) {
     const vip1 = document.querySelectorAll(".VIP1");
     for(var i=0; i<vip1.length; ++i) vip1[i].classList.add("vip-hover");
-    document.querySelector("#origin-img").style.display = "none";
-    document.querySelector("#VIP1").style.display = "block";
-    document.querySelector("#VIP2").style.display = "none";
+    document.querySelector("#origin-img").classList.remove("active");
+    document.querySelector("#VIP1").classList.add("active");
+    document.querySelector("#VIP2").classList.remove("active");
   }
   else if(vip === 2) {
     const vip2 = document.querySelectorAll(".VIP2");
     for(var i=0; i<vip2.length; ++i) vip2[i].classList.add("vip-hover");
-    document.querySelector("#origin-img").style.display = "none";
-    document.querySelector("#VIP1").style.display = "none";
-    document.querySelector("#VIP2").style.display = "block";
-  }
-  else if(vip === 0) {
-    document.querySelector("#origin-img").style.display = "block";
-    document.querySelector("#VIP1").style.display = "none";
-    document.querySelector("#VIP2").style.display = "none";
+    document.querySelector("#origin-img").classList.remove("active");
+    document.querySelector("#VIP1").classList.remove("active");
+    document.querySelector("#VIP2").classList.add("active");
   }
 }
 
 function recoverPhoto(e) {
   const vip = document.querySelectorAll(".vip-hover");
   for(var i=0; i<vip.length; ++i) vip[i].classList.remove("vip-hover");
-  document.querySelector("#origin-img").style.display = "block";
-  document.querySelector("#VIP1").style.display = "none";
-  document.querySelector("#VIP2").style.display = "none";
+  document.querySelector("#origin-img").classList.add("active");
+  document.querySelector("#VIP1").classList.remove("active");
+  document.querySelector("#VIP2").classList.remove("active");
 }
 

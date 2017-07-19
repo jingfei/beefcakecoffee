@@ -6,8 +6,6 @@
         background-image: url("/images/bg_venue.jpg"); 
         background-position: center; 
       } 
-      #VIP1, #VIP2 { display: none; }
-      .vip-hover { opacity: .8; color: gray; }
     </style>
 	</head>
 	<body>
@@ -15,8 +13,10 @@
     <div class="container-fluid">
       <div class="row textContent">
         <div class="col-md-5 vcenter" id="img-container">
-          <div id="origin-img">
-            <img src="images/venue_1.jpg" style="width:115%;margin-left:-50px;"/>
+          <div id="origin-img" class="active">
+            <img src="images/venue_1.jpg" />
+            <div style="margin:20px;"></div>
+            <img src="images/venue_1.jpg" />
           </div>
           <div id="VIP1">
             <img src="images/venue_VIP0.jpg" />
@@ -39,7 +39,7 @@
       </div>
     </div>
     {{> footer }}
-    <link rel="stylesheet" href="./css/layout.css" >
+    <link rel="stylesheet" href="./css/venue.css" >
     <script src="./js/common.js"></script>
     <script src="./js/slideImage.js"></script>
     <script src="./js/venue.js"></script>

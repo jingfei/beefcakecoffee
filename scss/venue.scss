@@ -1,0 +1,21 @@
+@import "./_layout";
+
+#img-container { 
+  overflow: hidden; 
+  height: 600px;
+}
+
+#VIP1, #VIP2, #origin-img { 
+  left: -1200px; 
+  position: absolute;
+  -webkit-transition: left .5s .1s ease;
+  transition: left .5s .1s ease;
+  &.active {
+    left: 0;
+  }
+}
+
+.VIP1, .VIP2 { cursor: pointer; }
+
+.vip-hover { opacity: .8; color: gray; }
+
