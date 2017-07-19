@@ -8,7 +8,7 @@ function changePhoto(e) {
   if(e.target.tagName.toUpperCase() !== "LI") return;
   imgContent = e.currentTarget.parentElement.parentElement.querySelector(".imgContent");
   src = e.target.getAttribute('data-src');
-  if(src.length) {
+  if(src && src.length) {
     imgContent.classList.add("getPicture");
     imgContent.style.backgroundImage = "url(/images/menu/"+src+")";
   }
