@@ -97,3 +97,13 @@
   }
 }
 
+.links {
+  padding: 0;
+  margin: 0;
+  font-size: 1.8em;
+  & > a { 
+    color: #bbb; 
+    margin-right: 20px;
+  }
+}
+
