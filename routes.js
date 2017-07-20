@@ -12,8 +12,9 @@ var postSchema = mongoose.Schema({
   title: String,
   content: String,
   date: { type: Date, default: Date.now },
-  hidden: { type: Boolean, default: false }
+  hidden: { type: Boolean, default: false },
 });
+postSchema.index({ title: "text", description: "text" });
 var Post = mongoose.model("Post", postSchema);
 
 /* deploy */
@@ -111,21 +112,29 @@ module.exports = function (app) {
       description: "join us - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee"
     });
   });
-  
+
   app.get('/news', function(req, res) {
-    Post.find({}, null, {sort: {date: -1}}, function(err, resPost) {
+    var key = req.query.key;
+    var searchKey = {};
+    // if(key) searchKey = { $text: { $search: key, $language: "zht" } };
+    if(key) 
+      searchKey = { $or: [ {title: new RegExp(key, "gi")}, {content: new RegExp(key, "gi")} ] };
+    console.log(searchKey);
+    Post.find(searchKey, null, {sort: {date: -1}}, function(err, resPost) {
       const monthNames = ["一","二","三","四","五","六","七","八","九","十","十一","十二"];
-      resPost = resPost.map(function(item) { 
-        var d = item.date.getDate();
-        var m = monthNames[item.date.getMonth()];
-        var y = item.date.getFullYear();
-        item.dateFormat = m + "月 " + d + ", " + y;
-        return item;
-      });
+      if(resPost)
+        resPost = resPost.map(function(item) { 
+          var d = item.date.getDate();
+          var m = monthNames[item.date.getMonth()];
+          var y = item.date.getFullYear();
+          item.dateFormat = m + "月 " + d + ", " + y;
+          return item;
+        });
       res.render('news', {
         title: "最新消息 - 猛男咖啡 Beefcake Coffee Roaster",
         description: "news - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
         menu_news: true,
+        key: key,
         resPost: resPost
       });
     });
