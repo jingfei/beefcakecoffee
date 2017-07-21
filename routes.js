@@ -112,6 +112,14 @@ module.exports = function (app) {
       description: "join us - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee"
     });
   });
+  
+  app.get('/prof', function (req, res) {
+    res.render('prof', {
+      title: "專業證照/器材 - 猛男咖啡 Beefcake Coffee Roaster",
+      description: "cert/mech - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
+      menu_prof: true
+    });
+  });   
 
   app.get('/news', function(req, res) {
     var key = req.query.key;
