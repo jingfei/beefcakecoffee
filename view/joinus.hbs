@@ -1,12 +1,13 @@
 <html>
   <head>
     {{> head}}
-    <style> 
-      .navbar-default .container-fluid .navbar-header { 
-        background-image: url("/images/bg_about.jpg"); 
-        background-position: center 42%; 
-      } 
+    <style>
+      .navbar-default .container-fluid .navbar-header {
+        background-image: url("/images/bg_about.jpg");
+        background-position: center 42%;
+      }
       #main { width: 80%; font-size: 1.1em; line-height: 2em; }
+      .row.textContent { padding: 0; }
       @media (max-width: 767px) { #main { width: 100%; margin: 0 10px; } }
     </style>
 	</head>
@@ -14,30 +15,46 @@
     {{> header}}
     <div class="container-fluid" id="main">
       <h1>加入我們</h1>
-      <ul><li>請準備好正式履歷，你有多重視這份工作，你就會花多少的時間來準備你的履歷。<br/>履歷中請回答以下問題，自我簡介、學歷工作經歷、附上個人照片及FB。
-<ol><li>敘述看你的工作經驗，描述令你最有成就感的工作</li>
-<li>你的興趣與嗜好是什麼？休假時候，都在做些什麼？</li>
-<li>你的未來人生規劃是什麼？</li>
-<li>在團隊當中，你通常扮演著什麼樣的角色？</li>
-<li>你想要成爲什麼樣的人？</li>
-<li>你為什麼想加入猛男咖啡？</li></ol>
-</li>
-<li>應徵方式：<br/>
-請來信PDF檔案正式履歷，<a href="mailto:beefcakecoffee@gmail.com">beefcakecoffee@gmail.com</a>，
-或是投遞履歷到門市。<br/>
-信件標題為「應徵全職門市人員-姓名」
-恕不一一回覆，合適者會另行通知面試。</li>
-      <li style="list-style-type:none;margin-left:-20px;">★★★投履歷前請注意★★★<ul>
-<li>具有餐飲、零售、客服工作經驗者佳，具有餐飲店管理幹部經驗者加分（加薪）。<br/>
+      <div class="row textContent" style="margin:20px 0;">
+        <ul class="col-lg-6 vcenter">
+          <li>請準備好正式履歷，你有多重視這份工作，你就會花多少的時間來準備你的履歷。<br/>履歷中請回答以下問題，自我簡介、學歷工作經歷、附上個人照片及FB。
+          <ol><li>敘述看你的工作經驗，描述令你最有成就感的工作</li>
+            <li>你的興趣與嗜好是什麼？休假時候，都在做些什麼？</li>
+            <li>你的未來人生規劃是什麼？</li>
+            <li>在團隊當中，你通常扮演著什麼樣的角色？</li>
+            <li>你想要成爲什麼樣的人？</li>
+            <li>你為什麼想加入猛男咖啡？</li></ol>
+          </li>
+          <li>應徵方式：<br/>
+              請來信PDF檔案正式履歷，<a href="mailto:beefcakecoffee@gmail.com">beefcakecoffee@gmail.com</a>，
+              或是投遞履歷到門市。<br/>
+              信件標題為「應徵全職門市人員-姓名」
+              恕不一一回覆，合適者會另行通知面試。</li>
+        </ul><!--
+        --><div class="col-lg-1 vcenter"></div><!--
+        --><div class="col-lg-5 vcenter">
+          <img src="images/joinus_1.jpg" class="slide-in align-right" />
+        </div>
+      </div>
+      <div class="row textContent" style="margin-top:20px;">
+        <ul class="col-lg-6 vcenter">
+          <li style="list-style-type:none;margin-left:-20px;">★★★投履歷前請注意★★★<ul>
+          <li>具有餐飲、零售、客服工作經驗者佳，具有餐飲店管理幹部經驗者加分（加薪）。<br/>
 就算沒經驗，我們也願意栽培，但須具備良好的人格特質與想進步的心。</li>
-<li>我們在找希望與團隊一起成長、享受成長果實的人，找短期工作者勿試。</li>
-<li>這裡適合「喜愛快節奏步調的吧台，且樂於與人分享美好，傳遞正面能量的人」。
-<br/>如果你的節奏步調較緩慢、喜愛咖啡浪漫氣氛者勿試，請不要浪費彼此時間。</li>
-<li>我們的工作繁忙、事務眾多，需要具備抗壓性，不適合只想學咖啡的人<br/>(想學習咖啡技術者請報名我們的課程才是最有效率的學習方式)</li></li></ul></ul>
+          <li>我們在找希望與團隊一起成長、享受成長果實的人，找短期工作者勿試。</li>
+          <li>這裡適合「喜愛快節奏步調的吧台，且樂於與人分享美好，傳遞正面能量的人」。
+              <br/>如果你的節奏步調較緩慢、喜愛咖啡浪漫氣氛者勿試，請不要浪費彼此時間。</li>
+          <li>我們的工作繁忙、事務眾多，需要具備抗壓性，不適合只想學咖啡的人<br/>(想學習咖啡技術者請報名我們的課程才是最有效率的學習方式)</li></li></ul>
+        </ul><!--
+        --><div class="col-lg-1 vcenter"></div><!--
+        --><div class="col-lg-5 vcenter">
+          <img src="images/joinus_2.jpg" class="slide-in align-right" />
+        </div>
+      </div>
     </div>
     {{> footer }}
     <link rel="stylesheet" href="./css/layout.css" >
     <script src="./js/common.js"></script>
+    <script src="./js/slideImage.js"></script>
   </body>
 </html>
-

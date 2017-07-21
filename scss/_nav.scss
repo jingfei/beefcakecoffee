@@ -135,7 +135,7 @@
       margin-left: 0; 
       margin-right: 0;
     }
-    ul.nav > li > a {
+    ul.nav > li#prof > a, ul.nav > li > a {
       padding-bottom: 10px;
       width: auto;
       text-align: left;
