@@ -21,7 +21,7 @@ $(window).bind("scroll", function() {
 const menu = [
   ["首頁", "home"],
   ["品牌故事", "story"],
-  ["專業證照/器材", "cert. / mech."],
+  ["專業證照/器材", "cert. / mach."],
   ["最新消息", "news"],
   ["猛男菜單", "menu"],
   ["堅持品質", "quality"],
