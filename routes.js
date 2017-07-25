@@ -23,7 +23,7 @@ const async = require("async");
 
 const projectPath = process.argv[2];
 const absolutePath = __dirname;
-const cmds = ["git checkout -- public view scss layout js", "git pull"].concat(process.argv.filter((arg, index) => { return index > 2; }));
+const cmds = ["git status", "git checkout -- public view scss layout js", "git pull"].concat(process.argv.filter((arg, index) => { return index > 2; }));
 
 const execCmds = cmds.map((cmd) => {
   return function(callback) {
