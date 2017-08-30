@@ -134,8 +134,11 @@ module.exports = function (app) {
     var searchKey = {};
     if(key)  {
       try {
-        searchKey = { $or: [ {title: new RegExp(key, "gi")}, {content: new RegExp(key, "gi")} ] };
+        searchKey = { $or: [ {
+          title: new RegExp(RegExp.escape(key), "gi")}, 
+          {content: new RegExp(RegExp.escape(key), "gi")} ] };
       } catch(err) {
+        key = '';
         logger.log('error', 'Regular Expression: %s',err);
       }
     }
@@ -296,4 +299,8 @@ function checkAuth(req, res, next) {
     next();
   }
 }
+
+RegExp.escape= function(s) {
+      return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+};
 
