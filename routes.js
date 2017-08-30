@@ -127,8 +127,8 @@ module.exports = function (app) {
     // if(key) searchKey = { $text: { $search: key, $language: "zht" } };
     if(key) 
       searchKey = { $or: [ {title: new RegExp(key, "gi")}, {content: new RegExp(key, "gi")} ] };
-    console.log(searchKey);
     Post.find(searchKey, null, {sort: {date: -1}}, function(err, resPost) {
+      if(err) logger.log('error', 'news page error message: %s', err);
       const monthNames = ["一","二","三","四","五","六","七","八","九","十","十一","十二"];
       if(resPost)
         resPost = resPost.map(function(item) { 
@@ -238,9 +238,7 @@ module.exports = function (app) {
           if(regResult) {
             regResult = new Set(regResult);
             for(var i=0; i<regResult.length; ++i) {
-              console.log(regResult[i]);
               regResult[i] = regResult[i].slice(18,-1);
-              console.log(regResult[i]);
               fs.unlink(__dirname+"/writable/"+regResult[i]);
             }
           }
