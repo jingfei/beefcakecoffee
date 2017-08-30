@@ -6,14 +6,6 @@ var sassMiddleware = require('node-sass-middleware');
 var uglifyMiddleware = require('express-uglify-middleware');
 var mongoose = require('mongoose');
 var session = require('express-session');
-var winston = require('winston');
-
-var logger = new winston.Logger({
-  level: 'error',
-  transports: [
-    new (winston.transports.File)({ filename: 'error.log' })
-  ]
-});
 
 var app = express();
 app.use(compression());

@@ -6,6 +6,14 @@ var multer = require('multer');
 var NEWS_IMAGE_PATH = path.resolve(__dirname, 'writable/');
 var upload = multer({dest: NEWS_IMAGE_PATH});
 var IMAGE_TYPES = ['image/jpeg', 'image/png'];
+var winston = require('winston');
+
+var logger = new winston.Logger({
+  level: 'error',
+  transports: [
+    new (winston.transports.File)({ filename: 'error.log' })
+  ]
+});
 
 /* define posts model */
 var postSchema = mongoose.Schema({
@@ -124,9 +132,13 @@ module.exports = function (app) {
   app.get('/news', function(req, res) {
     var key = req.query.key;
     var searchKey = {};
-    // if(key) searchKey = { $text: { $search: key, $language: "zht" } };
-    if(key) 
-      searchKey = { $or: [ {title: new RegExp(key, "gi")}, {content: new RegExp(key, "gi")} ] };
+    if(key)  {
+      try {
+        searchKey = { $or: [ {title: new RegExp(key, "gi")}, {content: new RegExp(key, "gi")} ] };
+      } catch(err) {
+        logger.log('error', 'Regular Expression: %s',err);
+      }
+    }
     Post.find(searchKey, null, {sort: {date: -1}}, function(err, resPost) {
       if(err) logger.log('error', 'news page error message: %s', err);
       const monthNames = ["一","二","三","四","五","六","七","八","九","十","十一","十二"];
