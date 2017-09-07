@@ -1,20 +1,25 @@
+var navTop = 250;
+
 (function() {
   document.getElementsByClassName("navbar-nav")[0].addEventListener("mouseover", hoverMenuIn);
   document.getElementsByClassName("navbar-nav")[0].addEventListener("mouseleave", hoverMenuOut);
   document.getElementsByClassName("navbar-nav")[0].addEventListener("mouseout", hoverMenuOut);
   document.getElementsByClassName("navbar-nav")[0].addEventListener("mouseenter", hoverMenuIn);
+  var bigimg = document.querySelector("#big-img");
+  navTop = bigimg ? bigimg.offsetHeight : document.querySelector("#navbar-collapse").offsetTop;
 })();
 
+
 $(window).bind("scroll", function() {
-  var offset = $(document).scrollTop(),
+  var offset = window.scrollY,
       nav = document.getElementsByClassName("navbar-default")[0],
-      navbarH = document.getElementById("navbar-collapse").offsetHeight,
-      container = document.getElementsByClassName("container-fluid")[1];
-  if(typeof container === "undefined") return;
-  if(offset < container.offsetTop - navbarH) {
+      navbarH = document.getElementById("navbar-collapse").offsetHeight;
+  if(offset < navTop) {
     nav.classList.remove("navbar-fixed-top");
+    document.querySelector("body > .container-fluid").style.paddingTop = 0;
   } else {
     nav.classList.add("navbar-fixed-top");
+    document.querySelector("body > .container-fluid").style.paddingTop = navbarH + "px";
   }
 });
 

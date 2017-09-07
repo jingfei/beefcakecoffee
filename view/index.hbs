@@ -10,7 +10,8 @@
     </style>
 	</head>
 	<body>
-    <div id="big-img" {{#if bigimg}} style="display: block" {{/if}}>
+    {{#if bigimg}}
+    <div id="big-img">
       <div id="img-back"></div>
       <div id="img-front"></div>
       <div id="img-text">
@@ -20,6 +21,7 @@
         </div>
       </div>
     </div>
+    {{/if}}
     {{> header}}
     <div class="container-fluid">
       <div class="homeBack reverseBack" style="background-image:url('images/home_2.jpg')">

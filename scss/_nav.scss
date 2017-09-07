@@ -8,6 +8,7 @@
     padding-left: 0;
     padding-right: 0;
   }
+  &.bigimg .navbar-header { display: none; }
   &.navbar-fixed-top {
     margin-top: -100px;
   }
@@ -62,6 +63,7 @@
   margin: 0;
   padding: 0;
   .navbar-collapse {
+    transition: all .5s;
     padding: 0 35px;
     background: black;
     position: fixed;
@@ -74,7 +76,7 @@
         color: white; 
       }
     }
-    img { display: block; }
+    img { max-width: 100px; }
   }
   @media (max-width: 1199px) {
     .navbar-collapse {
@@ -103,7 +105,7 @@
   border-top: 1px solid $gray;
   border-bottom: 1px solid $gray;
   ul.nav { margin-left: 100px; }
-  img { display: none; }
+  img { max-width: 0; transition: all .5s; }
   ul.nav > li > a { 
     padding-bottom: 12px; 
     width: 110px;
