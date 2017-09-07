@@ -21,6 +21,9 @@ $(window).bind("scroll", function() {
     nav.classList.add("navbar-fixed-top");
     document.querySelector("body > .container-fluid").style.paddingTop = navbarH + "px";
   }
+  if(window.innerWidth <= 767) {
+    document.querySelector("body > .container-fluid").style.paddingTop = "50px";
+  }
 });
 
 const menu = [

@@ -12,6 +12,9 @@
   &.navbar-fixed-top {
     margin-top: -100px;
   }
+  @media (max-width: 767px) {
+    &.bigimg .navbar-header { display: block; }
+  }
 }
 
 .navbar-default .navbar-header {
