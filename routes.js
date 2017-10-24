@@ -58,7 +58,8 @@ module.exports = function (app) {
       title: "猛男咖啡 Beefcake Coffee Roaster",
       description: "home - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
       menu_home: true,
-      bigimg: true
+      bigimg: true,
+      url: req.protocol + '://' + req.get('host') + req.originalUrl
     });
   });
 
@@ -70,6 +71,7 @@ module.exports = function (app) {
     res.render('index', { 
       title: "猛男咖啡 Beefcake Coffee Roaster",
       description: "home - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
+      url: req.protocol + '://' + req.get('host') + req.originalUrl,
       menu_home: true
     });
   });
@@ -78,6 +80,7 @@ module.exports = function (app) {
     res.render('story', {
       title: "品牌故事 - 猛男咖啡 Beefcake Coffee Roaster",
       description: "story - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
+      url: req.protocol + '://' + req.get('host') + req.originalUrl,
       menu_story: true
     });
   });
@@ -86,6 +89,7 @@ module.exports = function (app) {
     res.render('venue', {
       title: "場地租借 - 猛男咖啡 Beefcake Coffee Roaster",
       description: "venue - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
+      url: req.protocol + '://' + req.get('host') + req.originalUrl,
       menu_venue: true
     });
   });
@@ -94,6 +98,7 @@ module.exports = function (app) {
     res.render('about', {
       title: "分店資訊 - 猛男咖啡 Beefcake Coffee Roaster",
       description: "about - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
+      url: req.protocol + '://' + req.get('host') + req.originalUrl,
       menu_about: true
     });
   });
@@ -102,6 +107,7 @@ module.exports = function (app) {
     res.render('menu', {
       title: "猛男大成店菜單 - 猛男咖啡 Beefcake Coffee Roaster",
       description: "menu - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
+      url: req.protocol + '://' + req.get('host') + req.originalUrl,
       menu_menu: true
     });
   });
@@ -110,6 +116,7 @@ module.exports = function (app) {
     res.render('menu2', {
       title: "猛男安平店菜單 - 猛男咖啡 Beefcake Coffee Roaster",
       description: "menu 2.0 - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
+      url: req.protocol + '://' + req.get('host') + req.originalUrl,
       menu_menu2: true
     });
   });
@@ -117,7 +124,8 @@ module.exports = function (app) {
   app.get('/joinus', function(req, res) {
     res.render('joinus', {
       title: "加入我們 - 猛男咖啡 Beefcake Coffee Roaster",
-      description: "join us - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee"
+      description: "join us - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
+      url: req.protocol + '://' + req.get('host') + req.originalUrl
     });
   });
   
@@ -125,6 +133,7 @@ module.exports = function (app) {
     res.render('prof', {
       title: "專業證照/器材 - 猛男咖啡 Beefcake Coffee Roaster",
       description: "cert/mech - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
+      url: req.protocol + '://' + req.get('host') + req.originalUrl,
       menu_prof: true
     });
   });   
@@ -158,6 +167,7 @@ module.exports = function (app) {
         description: "news - 猛男咖啡 beefcake coffee - Enjoy everything about Coffee",
         menu_news: true,
         key: key,
+        url: req.protocol + '://' + req.get('host') + req.originalUrl,
         resPost: resPost
       });
     });
@@ -175,6 +185,7 @@ module.exports = function (app) {
 
   app.get('/login', function(req, res) {
     res.render('login', {
+      url: req.protocol + '://' + req.get('host') + req.originalUrl,
       title: "登入 - 猛男咖啡 Beefcake Coffee Roaster"
     });
   });
