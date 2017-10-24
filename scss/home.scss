@@ -1,5 +1,7 @@
 @import "./_layout";
 
+html, body { height:100%; }
+
 .navbar-default {
   .navbar-header {
     background-image: url(../images/home.jpg); 
